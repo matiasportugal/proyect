@@ -132,3 +132,17 @@ a {
 .menu button:hover {
   background: #2563eb;
 }
+
+.top-bar {
+  width: 100%;
+  height: 60px;
+  background: #e5e7eb; 
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.top-bar img {
+  height: 40px;
+}
+
