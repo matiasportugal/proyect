@@ -8,47 +8,63 @@
 </head>
 <body>
 
-<div class="container">
-
-  <!-- Menú lateral -->
-  <nav class="sidebar">
-    <h2>Proyecto</h2>
+<!-- Botón flotante -->
+<div class="menu-container">
+  <div class="menu-button">➤</div>
+  <div class="menu">
     <button onclick="showSection('blog')">📰 Blog</button>
     <button onclick="showSection('game')">🎮 Juego</button>
-  </nav>
+  </div>
+</div>
 
-  <!-- Contenido -->
-  <main class="content">
+<!-- BLOG -->
+<section id="blog" class="section active">
 
-    <!-- BLOG -->
-    <section id="blog" class="section active">
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-content">
       <h1>Título del Blog</h1>
-      <p class="placeholder">Aquí va la introducción del tema.</p>
+      <p>Subtítulo o tema principal</p>
+    </div>
+  </header>
 
-      <h2>Contenido</h2>
-      <p class="placeholder">
-        Aquí irá toda la información del proyecto.
-      </p>
+  <!-- CONTENIDO -->
+  <main class="content">
+    <h2>Introducción</h2>
+    <p class="placeholder">
+      Aquí va la introducción del proyecto.
+    </p>
 
-      <h2>Fuentes</h2>
-      <ul>
-        <li><a href="#" target="_blank">Fuente 1</a></li>
-        <li><a href="#" target="_blank">Fuente 2</a></li>
-        <li><a href="#" target="_blank">Fuente 3</a></li>
-      </ul>
-    </section>
+    <h2>Información</h2>
+    <p class="placeholder">
+      Aquí va toda la información principal del blog.
+    </p>
 
-    <!-- JUEGO -->
-    <section id="game" class="section">
-      <h1>Juego de Preguntas</h1>
-      <p class="placeholder">
-        Aquí irá el juego tipo Kahoot con preguntas del blog.
-      </p>
-    </section>
-
+    <h2>Fuentes</h2>
+    <ul>
+      <li><a href="#" target="_blank">Fuente 1</a></li>
+      <li><a href="#" target="_blank">Fuente 2</a></li>
+      <li><a href="#" target="_blank">Fuente 3</a></li>
+    </ul>
   </main>
 
-</div>
+</section>
+
+<!-- JUEGO -->
+<section id="game" class="section">
+  <header class="hero small">
+    <div class="hero-content">
+      <h1>Juego de Preguntas</h1>
+      <p>Tipo Kahoot</p>
+    </div>
+  </header>
+
+  <main class="content">
+    <p class="placeholder">
+      Aquí irá el juego mañana.
+    </p>
+  </main>
+</section>
 
 <script src="script.js"></script>
 </body>
