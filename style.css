@@ -135,16 +135,17 @@ a {
 
 .top-bar {
   width: 100%;
-  height: 100px;         
+  height: 48px;        
   background: #353535;
   display: flex;
   align-items: center;
-  padding-left: 10px;
+  padding-left: 20px;
 }
 
 .top-bar img {
-  height: 18px;          
+  height: 32px;         
 }
+
 /* ====== AJUSTES PARA CELULAR ====== */
 @media (max-width: 768px) {
 
