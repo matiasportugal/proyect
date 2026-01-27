@@ -9,41 +9,64 @@ body {
   color: #e5e7eb;
 }
 
-.container {
+/* HERO */
+.hero {
+  height: 60vh;
+  background-image: url("img/fondo.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.hero.small {
+  height: 40vh;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(6px);
+}
+
+.hero-content {
+  position: relative;
+  height: 100%;
   display: flex;
-  min-height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
-.sidebar {
-  width: 220px;
-  background: #020617;
-  padding: 20px;
+.hero h1 {
+  font-size: 3rem;
+  margin: 0;
 }
 
-.sidebar h2 {
-  margin-bottom: 20px;
+.hero p {
+  font-size: 1.2rem;
+  color: #cbd5f5;
 }
 
-.sidebar button {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  background: #1e293b;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.sidebar button:hover {
-  background: #2563eb;
-}
-
+/* CONTENIDO */
 .content {
-  flex: 1;
-  padding: 40px;
+  max-width: 900px;
+  margin: auto;
+  padding: 40px 20px;
 }
 
+.placeholder {
+  color: #94a3b8;
+}
+
+/* LINKS */
+a {
+  color: #60a5fa;
+}
+
+/* SECCIONES */
 .section {
   display: none;
 }
@@ -52,10 +75,54 @@ body {
   display: block;
 }
 
-.placeholder {
-  color: #94a3b8;
+/* MENÚ FLOTANTE */
+.menu-container {
+  position: fixed;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  z-index: 100;
 }
 
-a {
-  color: #60a5fa;
+.menu-button {
+  width: 45px;
+  height: 45px;
+  background: #2563eb;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.menu {
+  position: absolute;
+  left: 55px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #020617;
+  padding: 10px;
+  border-radius: 10px;
+  display: none;
+}
+
+.menu-container:hover .menu {
+  display: block;
+}
+
+.menu button {
+  display: block;
+  width: 120px;
+  margin: 5px 0;
+  padding: 8px;
+  background: #1e293b;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.menu button:hover {
+  background: #2563eb;
 }
