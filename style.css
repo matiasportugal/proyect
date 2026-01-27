@@ -135,14 +135,14 @@ a {
 
 .top-bar {
   width: 100%;
-  height: 60px;
-  background: #e5e7eb; 
+  height: 26px;         
+  background: #e5e7eb;
   display: flex;
   align-items: center;
-  padding-left: 20px;
+  padding-left: 10px;
 }
 
 .top-bar img {
-  height: 40px;
+  height: 18px;          
 }
 
