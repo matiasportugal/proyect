@@ -1,1 +1,55 @@
-<h1>Github pages test</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Proyecto Escolar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Menú lateral -->
+  <nav class="sidebar">
+    <h2>Proyecto</h2>
+    <button onclick="showSection('blog')">📰 Blog</button>
+    <button onclick="showSection('game')">🎮 Juego</button>
+  </nav>
+
+  <!-- Contenido -->
+  <main class="content">
+
+    <!-- BLOG -->
+    <section id="blog" class="section active">
+      <h1>Título del Blog</h1>
+      <p class="placeholder">Aquí va la introducción del tema.</p>
+
+      <h2>Contenido</h2>
+      <p class="placeholder">
+        Aquí irá toda la información del proyecto.
+      </p>
+
+      <h2>Fuentes</h2>
+      <ul>
+        <li><a href="#" target="_blank">Fuente 1</a></li>
+        <li><a href="#" target="_blank">Fuente 2</a></li>
+        <li><a href="#" target="_blank">Fuente 3</a></li>
+      </ul>
+    </section>
+
+    <!-- JUEGO -->
+    <section id="game" class="section">
+      <h1>Juego de Preguntas</h1>
+      <p class="placeholder">
+        Aquí irá el juego tipo Kahoot con preguntas del blog.
+      </p>
+    </section>
+
+  </main>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
