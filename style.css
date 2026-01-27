@@ -145,4 +145,37 @@ a {
 .top-bar img {
   height: 18px;          
 }
+/* ====== AJUSTES PARA CELULAR ====== */
+@media (max-width: 768px) {
+
+  /* HERO más pequeño */
+  .hero {
+    height: 40vh;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .top-bar {
+    height: 40px;
+    padding-left: 15px;
+  }
+
+  .top-bar img {
+    height: 26px;
+  }
+
+  .content {
+    padding: 25px 15px;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+  }
+}
 
