@@ -26,11 +26,30 @@
       height: 100px;
       display: flex;
       align-items: center;
-      padding-left: 30px;
+      padding: 0 30px;
+      gap: 30px;
     }
 
     .top-bar img {
       height: 70px;
+    }
+
+    /* NAV SUPERIOR */
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #000;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #facc15;
     }
 
     /* HERO */
@@ -107,7 +126,7 @@
       font-size: 1rem;
     }
 
-    /* MENÚ */
+    /* MENÚ LATERAL */
     .menu {
       position: fixed;
       left: 15px;
@@ -164,13 +183,9 @@
 
     @media (max-width: 768px) {
       .top-bar {
-        height: 140px;
-        justify-content: center;
-        padding-left: 0;
-      }
-
-      .top-bar img {
-        height: 80px;
+        height: auto;
+        flex-direction: column;
+        padding: 20px;
       }
 
       .hero-content h1 {
@@ -186,10 +201,22 @@
 
 <body>
 
+  <!-- BARRA SUPERIOR -->
   <div class="top-bar">
     <img src="img/logo.png" alt="Logo del colegio">
+
+    <div class="nav-links">
+      <a href="#inicio-card">Inicio</a>
+      <a href="#problema">¿Por qué es un problema?</a>
+      <a href="#marco">¿Qué está pasando?</a>
+      <a href="#impacto">Impacto marino</a>
+      <a href="#personas">Impacto humano</a>
+      <a href="#soluciones">Soluciones</a>
+      <a href="#fuentes">Fuentes</a>
+    </div>
   </div>
 
+  <!-- HERO -->
   <section class="hero" id="inicio">
     <div class="hero-content">
       <h1>
@@ -202,29 +229,12 @@
     </div>
   </section>
 
-  <!-- MENÚ -->
-  <div class="menu">
-    <div class="menu-button">➜</div>
-    <div class="menu-box">
-      <a href="#inicio-card">Inicio</a>
-      <a href="#problema">¿Por qué es un problema?</a>
-      <a href="#marco">¿Qué está pasando?</a>
-      <a href="#impacto">Impacto marino</a>
-      <a href="#personas">Impacto humano</a>
-      <a href="#soluciones">Soluciones</a>
-      <a href="#fuentes">Fuentes</a>
-    </div>
-  </div>
-
   <!-- CONTENIDO -->
   <div class="content">
 
     <div class="card" id="inicio-card">
       <h3>Inicio</h3>
-      <p>
-        La contaminación del mar en el Ecuador es un problema grave causado principalmente por la basura,
-        especialmente plásticos, que llegan al océano desde ciudades, ríos y esteros.
-      </p>
+      <p>La contaminación del mar en el Ecuador es un problema grave causado principalmente por la basura.</p>
     </div>
 
     <div class="card" id="problema">
