@@ -6,7 +6,6 @@
   <title>Pintagua</title>
   <link rel="icon" type="image/png" href="logo.png">
 
-
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
@@ -22,7 +21,6 @@
       color: #222;
     }
 
-    /* BARRA SUPERIOR */
     .top-bar {
       background-color: #f2f2f2;
       height: 100px;
@@ -63,7 +61,6 @@
       user-select: none;
     }
 
-    /* HERO */
     .hero {
       position: relative;
       height: 70vh;
@@ -109,7 +106,6 @@
     .ecu-azul { color: #2563eb; }
     .ecu-rojo { color: #dc2626; }
 
-    /* CONTENIDO */
     .content {
       max-width: 900px;
       margin: 40px auto;
@@ -135,7 +131,23 @@
       line-height: 1.7;
     }
 
-    /* JUEGO */
+    /* IMÁGENES INICIO */
+    .inicio-imagenes {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .inicio-imagenes img {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
+    .inicio-imagenes div {
+      flex: 1;
+    }
+
     .quiz button {
       display: block;
       width: 100%;
@@ -171,15 +183,18 @@
       .hero-content h1 {
         font-size: 2.2rem;
       }
+
+      .inicio-imagenes {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- BARRA SUPERIOR -->
   <div class="top-bar">
-    <img src="img/logo.png" alt="Logo del colegio">
+    <img src="img/logo.png" alt="Logo">
 
     <div class="nav-links">
       <a href="#inicio-card">Inicio</a>
@@ -188,16 +203,12 @@
       <a href="#impacto">Impacto marino</a>
       <a href="#personas">Impacto humano</a>
       <a href="#soluciones">Soluciones</a>
-
       <span class="separator">|</span>
-
       <a href="#juego">Juego</a>
-
       <a href="#fuentes">Fuentes</a>
     </div>
   </div>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="hero-content">
       <h1>
@@ -210,12 +221,21 @@
     </div>
   </section>
 
-  <!-- CONTENIDO -->
   <div class="content">
 
     <div class="card" id="inicio-card">
       <h3>Inicio</h3>
-      <p>La contaminación del mar en el Ecuador es un problema grave causado principalmente por la basura, especialmente plásticos, que llegan al océano desde ciudades, ríos y esteros. Estos residuos dañan a los animales marinos al ser ingeridos o al enredarse en ellos, afectando ecosistemas únicos como Galápagos. Además, esta contaminación perjudica a las comunidades que dependen del mar, por lo que es importante crear conciencia y buscar soluciones para proteger los ecosistemas marinos del país.</p>
+      <p>
+        La contaminación del mar en el Ecuador es un problema grave causado principalmente por la basura,
+        especialmente plásticos, que llegan al océano desde ciudades, ríos y esteros.
+      </p>
+
+      <!-- IMÁGENES -->
+      <div class="inicio-imagenes">
+        <div><img src="pez1.jpg" alt="Pez 1"></div>
+        <div><img src="pez2.jpg" alt="Pez 2"></div>
+        <div><img src="pez3.jpg" alt="Pez 3"></div>
+      </div>
     </div>
 
     <div class="card" id="problema">
@@ -243,7 +263,6 @@
       <p>Aquí van las soluciones.</p>
     </div>
 
-    <!-- JUEGO -->
     <div class="card quiz" id="juego">
       <h3>Juego rápido</h3>
       <p>¿Cuál es el residuo que más contamina el mar?</p>
