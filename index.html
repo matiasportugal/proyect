@@ -2,78 +2,208 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Cuidemos nuestros mares</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pintagua</title>
+
+  <!-- Fuente bonita y redondita -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f2f2f2;
+      color: #222;
+    }
+
+    /* BARRA SUPERIOR (GRIS) */
+    .top-bar {
+      background-color: #f2f2f2;
+      height: 100px; /* DOBLE de grande */
+      display: flex;
+      align-items: center;
+      padding-left: 30px;
+    }
+
+    .top-bar img {
+      height: 70px;
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      height: 70vh;
+      background-image: url("img/fondo.jpg");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(4px);
+    }
+
+    .hero-content {
+      position: relative;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    .hero-content h2 {
+      font-size: 1.3rem;
+      font-weight: 300;
+      margin-top: 10px;
+    }
+
+    /* CONTENIDO */
+    .content {
+      max-width: 900px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .content h3 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+    }
+
+    .content p {
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    /* BOTÓN LATERAL */
+    .menu {
+      position: fixed;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .menu-button {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #353535;
+      color: white;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .menu-box {
+      display: none;
+      position: absolute;
+      left: 60px;
+      top: 0;
+      background: white;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .menu:hover .menu-box {
+      display: block;
+    }
+
+    .menu-box a {
+      display: block;
+      text-decoration: none;
+      color: #333;
+      padding: 8px 10px;
+      border-radius: 6px;
+    }
+
+    .menu-box a:hover {
+      background-color: #eee;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .top-bar {
+        height: 140px;
+        justify-content: center;
+        padding-left: 0;
+      }
+
+      .top-bar img {
+        height: 80px;
+      }
+
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero-content h2 {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
   <!-- BARRA SUPERIOR -->
   <div class="top-bar">
-    <img src="img/logo.png" alt="Logo colegio">
-
-    <nav class="nav-links">
-      <a href="#inicio">Inicio</a>
-      <a href="#problema">¿Por qué es un problema?</a>
-      <a href="#marco">¿Qué está pasando?</a>
-      <a href="#impacto">Impacto marino</a>
-      <a href="#personas">Impacto humano</a>
-      <a href="#soluciones">Soluciones</a>
-      <a href="#fuentes">Fuentes</a>
-    </nav>
+    <img src="img/logo.png" alt="Logo del colegio">
   </div>
 
   <!-- HERO -->
-  <section class="hero" id="inicio">
+  <section class="hero">
     <div class="hero-content">
-      <h1>
-        La basura en los 
-        <span class="eco">ecosistemas</span> 
-        <span class="mar">marinos</span><br>
-        <span class="ecu">
-          <span class="ecu-amarillo">ecua</span><span class="ecu-azul">toria</span><span class="ecu-rojo">nos</span>
-        </span>
-      </h1>
-      <p>Por un Ecuador mejor</p>
+<h1>
+  La basura en los 
+  <span class="eco">ecosistemas</span> 
+  <span class="mar">marinos</span><br>
+  <span class="ecu">
+    <span class="ecu-amarillo">ecua</span><span class="ecu-azul">toria</span><span class="ecu-rojo">nos</span>
+  </span>
+</h1>
+
+      <h2>Por un Ecuador mejor</h2>
     </div>
   </section>
 
+  <!-- MENÚ -->
+  <div class="menu">
+    <div class="menu-button">➜</div>
+    <div class="menu-box">
+      <a href="#">Blog</a>
+      <a href="#">Juego</a>
+    </div>
+  </div>
+
   <!-- CONTENIDO -->
-  <main class="content">
-
-    <section id="problema">
-      <h2>¿Por qué es un problema?</h2>
-      <p class="placeholder">Aquí va la justificación.</p>
-    </section>
-
-    <section id="marco">
-      <h2>¿Qué está pasando en nuestros mares?</h2>
-      <p class="placeholder">Aquí va el marco teórico.</p>
-    </section>
-
-    <section id="impacto">
-      <h2>Impacto en la vida marina</h2>
-      <p class="placeholder">Aquí va la información del impacto.</p>
-    </section>
-
-    <section id="personas">
-      <h2>¿Cómo nos afecta a nosotros?</h2>
-      <p class="placeholder">Aquí va el impacto en las personas.</p>
-    </section>
-
-    <section id="soluciones">
-      <h2>¿Qué podemos hacer?</h2>
-      <p class="placeholder">Aquí van las soluciones.</p>
-    </section>
-
-    <section id="fuentes">
-      <h2>Fuentes</h2>
-      <ul>
-        <li><a href="#">Fuente 1</a></li>
-        <li><a href="#">Fuente 2</a></li>
-      </ul>
-    </section>
-
-  </main>
+  <div class="content">
+    <h3>Inicio</h3>
+    <p>
+      La contaminación del mar en el Ecuador es un problema grave causado principalmente por la basura, especialmente plásticos, que llegan al océano desde ciudades, ríos y esteros. Estos residuos dañan a los animales marinos al ser ingeridos o al enredarse en ellos, afectando ecosistemas únicos como Galápagos. Además, esta contaminación perjudica a las comunidades que dependen del mar, por lo que es importante crear conciencia y buscar soluciones para proteger los ecosistemas marinos del país.
+    </p>
+  </div>
 
 </body>
 </html>
