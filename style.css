@@ -170,3 +170,30 @@ h2 {
     padding: 25px 15px;
   }
 }
+/* Palabra ecosistemas */
+.eco {
+  color: #22c55e;
+  text-decoration: underline;
+}
+
+/* Palabra marinos */
+.mar {
+  color: #0a2540;
+}
+
+/* Ecuador colores */
+.ecu {
+  font-weight: 800;
+}
+
+.ecu-amarillo {
+  color: #facc15;
+}
+
+.ecu-azul {
+  color: #2563eb;
+}
+
+.ecu-rojo {
+  color: #dc2626;
+}
