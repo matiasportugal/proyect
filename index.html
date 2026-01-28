@@ -197,6 +197,50 @@
     }
   </style>
 </head>
+<script>
+const fondo = document.querySelector('.fondo-decorativo');
+
+const TOTAL_PECES = 30;
+const TOTAL_BURBUJAS = 20;
+
+const coloresAzules = [
+  '#0a2540',
+  '#1e40af',
+  '#2563eb',
+  '#38bdf8',
+  '#60a5fa'
+];
+
+function random(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+function crearElemento(clase, src) {
+  const img = document.createElement('img');
+  img.src = src;
+  img.classList.add(clase);
+
+  const alturaPagina = document.documentElement.scrollHeight;
+
+  img.style.top = random(0, alturaPagina) + 'px';
+  img.style.left = random(0, 100) + 'vw';
+
+  img.style.filter += ` drop-shadow(0 0 0 ${coloresAzules[Math.floor(Math.random() * coloresAzules.length)]})`;
+
+  fondo.appendChild(img);
+}
+
+/* Peces */
+for (let i = 0; i < TOTAL_PECES; i++) {
+  const profundidad = i % 3 === 0 ? 'back' : i % 2 === 0 ? 'mid' : 'front';
+  crearElemento(profundidad, 'img/fish.png');
+}
+
+/* Burbujas */
+for (let i = 0; i < TOTAL_BURBUJAS; i++) {
+  crearElemento('back', 'img/bubble.png');
+}
+</script>
 
 <body>
 
@@ -284,7 +328,7 @@
     const alto = document.body.scrollHeight;
     const ancho = window.innerWidth;
 
-    for (let i = 0; i < 15; i++) {
+    for (let i = 0; i < 30; i++) {
       const img = document.createElement("img");
       img.src = Math.random() > 0.5 ? "img/fish fondo1.png" : "img/fish fondo2.png";
       img.style.left = rand(0, ancho - 150) + "px";
@@ -294,7 +338,7 @@
       front.appendChild(img);
     }
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 20; i++) {
       const img = document.createElement("img");
       img.src = "img/burbujas.png";
       img.style.left = rand(0, ancho - 100) + "px";
