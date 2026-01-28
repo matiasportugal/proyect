@@ -1,29 +1,199 @@
-/* NAV LINKS ARRIBA */
-.nav-links {
-  margin-left: auto;
-  margin-right: 30px;
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;600;800&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #0f172a;
+  color: #e5e7eb;
+}
+
+/* =========================
+   BARRA SUPERIOR (GRANDE)
+========================= */
+.top-bar {
+  width: 100%;
+  height: 240px; /* DOBLE */
+  background: #353535;
   display: flex;
-  gap: 20px;
+  align-items: center;
+  padding-left: 40px;
 }
 
-.nav-links a {
+.top-bar img {
+  height: 140px;
+}
+
+/* =========================
+   HERO
+========================= */
+.hero {
+  height: 60vh;
+  background-image: url("img/fondo.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+}
+
+.hero-content {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: #cbd5f5;
+}
+
+/* =========================
+   CONTENIDO
+========================= */
+.content {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+h2 {
+  font-weight: 700;
+}
+
+.placeholder {
+  color: #94a3b8;
+}
+
+/* =========================
+   MENÚ FLOTANTE
+========================= */
+.menu-container {
+  position: fixed;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  z-index: 100;
+}
+
+.menu-button {
+  width: 45px;
+  height: 45px;
+  background: #2563eb;
   color: white;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.2s ease;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
-.nav-links a:hover {
-  color: #facc15; /* amarillo */
+.menu {
+  position: absolute;
+  left: 55px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #020617;
+  padding: 10px;
+  border-radius: 10px;
+  display: none;
 }
 
-/* SECCIONES */
-section {
-  margin-bottom: 60px;
-  scroll-margin-top: 260px;
+.menu-container:hover .menu {
+  display: block;
 }
 
-/* SCROLL SUAVE */
-html {
-  scroll-behavior: smooth;
+.menu button {
+  display: block;
+  width: 120px;
+  margin: 5px 0;
+  padding: 8px;
+  background: #1e293b;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.menu button:hover {
+  background: #2563eb;
+}
+
+/* =========================
+   RESPONSIVE (CELULAR)
+========================= */
+@media (max-width: 768px) {
+
+  .top-bar {
+    height: 200px;
+    justify-content: center;
+    padding-left: 0;
+  }
+
+  .top-bar img {
+    height: 120px;
+  }
+
+  .hero {
+    height: 40vh;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .content {
+    padding: 25px 15px;
+  }
+}
+/* Palabra ecosistemas */
+.eco {
+  color: #22c55e;
+  text-decoration: underline;
+}
+
+/* Palabra marinos */
+.mar {
+  color: #0a2540;
+}
+
+/* Ecuador colores */
+.ecu {
+  font-weight: 800;
+}
+
+.ecu-amarillo {
+  color: #facc15;
+}
+
+.ecu-azul {
+  color: #2563eb;
+}
+
+.ecu-rojo {
+  color: #dc2626;
 }
