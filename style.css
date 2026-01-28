@@ -9,7 +9,25 @@ body {
   color: #e5e7eb;
 }
 
-/* HERO */
+/* =========================
+   BARRA SUPERIOR (PC)
+========================= */
+.top-bar {
+  width: 100%;
+  height: 48px;
+  background: #353535;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.top-bar img {
+  height: 32px;
+}
+
+/* =========================
+   HERO
+========================= */
 .hero {
   height: 60vh;
   background-image: url("img/fondo.jpg");
@@ -42,7 +60,7 @@ body {
 
 .hero h1 {
   font-size: 3rem;
-  font-weight: 700;
+  font-weight: 800;
   margin: 0;
 }
 
@@ -52,7 +70,9 @@ body {
   color: #cbd5f5;
 }
 
-/* CONTENIDO */
+/* =========================
+   CONTENIDO
+========================= */
 .content {
   max-width: 900px;
   margin: auto;
@@ -60,7 +80,7 @@ body {
 }
 
 h2 {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .placeholder {
@@ -72,7 +92,9 @@ a {
   color: #60a5fa;
 }
 
-/* SECCIONES */
+/* =========================
+   SECCIONES
+========================= */
 .section {
   display: none;
 }
@@ -81,7 +103,9 @@ a {
   display: block;
 }
 
-/* MENÚ FLOTANTE */
+/* =========================
+   MENÚ FLOTANTE
+========================= */
 .menu-container {
   position: fixed;
   top: 50%;
@@ -133,23 +157,22 @@ a {
   background: #2563eb;
 }
 
-.top-bar {
-  width: 100%;
-  height: 48px;        
-  background: #353535;
-  display: flex;
-  align-items: center;
-  padding-left: 20px;
-}
-
-.top-bar img {
-  height: 32px;         
-}
-
-/* ====== AJUSTES PARA CELULAR ====== */
+/* =========================
+   AJUSTES PARA CELULAR
+========================= */
 @media (max-width: 768px) {
 
-  /* HERO más pequeño */
+  /* Barra superior en móvil */
+  .top-bar {
+    height: 40px;
+    padding-left: 15px;
+  }
+
+  .top-bar img {
+    height: 26px;
+  }
+
+  /* Hero más pequeño */
   .hero {
     height: 40vh;
   }
@@ -162,15 +185,7 @@ a {
     font-size: 1rem;
   }
 
-  .top-bar {
-    height: 40px;
-    padding-left: 15px;
-  }
-
-  .top-bar img {
-    height: 26px;
-  }
-
+  /* Contenido */
   .content {
     padding: 25px 15px;
   }
@@ -179,4 +194,3 @@ a {
     font-size: 1.3rem;
   }
 }
-
