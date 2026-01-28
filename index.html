@@ -26,7 +26,7 @@
       display: flex;
       align-items: center;
       padding: 0 30px;
-      gap: 30px;
+      gap: 20px;
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -39,7 +39,7 @@
 
     .nav-links {
       display: flex;
-      gap: 18px;
+      gap: 14px;
       flex-wrap: wrap;
       align-items: center;
     }
@@ -86,25 +86,7 @@
       align-items: center;
       text-align: center;
       color: white;
-      padding: 20px;
     }
-
-    .hero-content h1 {
-      font-size: 3rem;
-      font-weight: 700;
-    }
-
-    .hero-content h2 {
-      font-size: 1.3rem;
-      font-weight: 300;
-      margin-top: 10px;
-    }
-
-    .eco { color: #22c55e; text-decoration: underline; }
-    .mar { color: #1986D3; }
-    .ecu-amarillo { color: #facc15; }
-    .ecu-azul { color: #2563eb; }
-    .ecu-rojo { color: #dc2626; }
 
     /* CONTENIDO */
     .content {
@@ -123,63 +105,54 @@
       scroll-margin-top: 120px;
     }
 
-    .card h3 {
-      font-size: 1.6rem;
-      margin-bottom: 10px;
+    /* PAGINA JUEGO */
+    .game-page {
+      min-height: 100vh;
+      background: #ffffff;
+      padding: 120px 20px 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-    .card p {
-      line-height: 1.7;
-    }
-
-    /* JUEGO */
-    .quiz button {
-      display: block;
+    .game-box {
+      max-width: 500px;
       width: 100%;
-      margin: 10px 0;
+      background: #f9f9f9;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .game-box button {
+      width: 100%;
       padding: 12px;
+      margin: 10px 0;
       border: none;
       border-radius: 8px;
-      background-color: #e5e5e5;
+      background: #e5e5e5;
       cursor: pointer;
-      font-size: 1rem;
     }
 
-    .quiz button:hover {
-      background-color: #facc15;
-    }
-
-    #resultado {
-      margin-top: 15px;
-      font-weight: 600;
+    .game-box button:hover {
+      background: #facc15;
     }
 
     html {
       scroll-behavior: smooth;
-    }
-
-    @media (max-width: 768px) {
-      .top-bar {
-        flex-direction: column;
-        height: auto;
-        padding: 20px;
-      }
-
-      .hero-content h1 {
-        font-size: 2.2rem;
-      }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- BARRA SUPERIOR -->
+  <!-- BARRA -->
   <div class="top-bar">
-    <img src="img/logo.png" alt="Logo del colegio">
+    <img src="img/logo.png" alt="Logo">
 
     <div class="nav-links">
-      <a href="#inicio-card">Inicio</a>
+      <a href="#inicio">Inicio</a>
       <a href="#problema">Problema</a>
       <a href="#marco">Marco teórico</a>
       <a href="#impacto">Impacto marino</a>
@@ -188,87 +161,45 @@
 
       <span class="separator">|</span>
 
-      <a href="#juego">Juego</a>
-
-      <a href="#fuentes">Fuentes</a>
+      <a href="#pagina-juego">Juego</a>
     </div>
   </div>
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero" id="inicio">
     <div class="hero-content">
-      <h1>
-        La basura en los 
-        <span class="eco">ecosistemas</span>
-        <span class="mar">marinos</span><br>
-        <span class="ecu-amarillo">ecua</span><span class="ecu-azul">toria</span><span class="ecu-rojo">nos</span>
-      </h1>
-      <h2>Por un Ecuador mejor</h2>
+      <h1>La basura en los ecosistemas marinos</h1>
     </div>
   </section>
 
   <!-- CONTENIDO -->
   <div class="content">
-
-    <div class="card" id="inicio-card">
-      <h3>Inicio</h3>
-      <p>La contaminación del mar en el Ecuador es un problema grave causado principalmente por la basura.</p>
-    </div>
-
-    <div class="card" id="problema">
-      <h3>¿Por qué es un problema?</h3>
-      <p>Aquí va la justificación.</p>
-    </div>
-
-    <div class="card" id="marco">
-      <h3>¿Qué está pasando en nuestros mares?</h3>
-      <p>Aquí va el marco teórico.</p>
-    </div>
-
-    <div class="card" id="impacto">
-      <h3>Impacto en la vida marina</h3>
-      <p>Aquí va el impacto ambiental.</p>
-    </div>
-
-    <div class="card" id="personas">
-      <h3>Impacto en las personas</h3>
-      <p>Aquí va el impacto humano.</p>
-    </div>
-
-    <div class="card" id="soluciones">
-      <h3>¿Qué podemos hacer?</h3>
-      <p>Aquí van las soluciones.</p>
-    </div>
-
-    <!-- JUEGO -->
-    <div class="card quiz" id="juego">
-      <h3>Juego rápido</h3>
-      <p>¿Cuál es el residuo que más contamina el mar?</p>
-
-      <button onclick="respuesta(false)">Vidrio</button>
-      <button onclick="respuesta(true)">Plástico</button>
-      <button onclick="respuesta(false)">Papel</button>
-
-      <div id="resultado"></div>
-    </div>
-
-    <div class="card" id="fuentes">
-      <h3>Fuentes</h3>
-      <p>Aquí van los links.</p>
-    </div>
-
+    <div class="card" id="problema"><h3>Problema</h3></div>
+    <div class="card" id="marco"><h3>Marco teórico</h3></div>
+    <div class="card" id="impacto"><h3>Impacto marino</h3></div>
+    <div class="card" id="personas"><h3>Impacto humano</h3></div>
+    <div class="card" id="soluciones"><h3>Soluciones</h3></div>
   </div>
 
+  <!-- PAGINA DEL JUEGO -->
+  <section class="game-page" id="pagina-juego">
+    <div class="game-box">
+      <h2>Juego educativo</h2>
+      <p>¿Qué residuo contamina más el océano?</p>
+
+      <button onclick="res(false)">Vidrio</button>
+      <button onclick="res(true)">Plástico</button>
+      <button onclick="res(false)">Papel</button>
+
+      <p id="res"></p>
+    </div>
+  </section>
+
   <script>
-    function respuesta(correcta) {
-      const r = document.getElementById("resultado");
-      if (correcta) {
-        r.textContent = "✅ Correcto. El plástico es el principal contaminante.";
-        r.style.color = "green";
-      } else {
-        r.textContent = "❌ Incorrecto. Intenta de nuevo.";
-        r.style.color = "red";
-      }
+    function res(ok) {
+      const r = document.getElementById("res");
+      r.textContent = ok ? "✅ Correcto" : "❌ Incorrecto";
+      r.style.color = ok ? "green" : "red";
     }
   </script>
 
