@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pintagua</title>
-  <img src="img/logo.png">
+
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" href="img/logo.png">
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -122,16 +124,6 @@
       scroll-margin-top: 120px;
     }
 
-    .card h3 {
-      font-size: 1.6rem;
-      margin-bottom: 10px;
-    }
-
-    .card p {
-      line-height: 1.7;
-    }
-
-    /* SECCIÓN IMÁGENES FULL WIDTH */
     .imagenes-full {
       width: 100%;
       display: flex;
@@ -173,26 +165,6 @@
 
     html {
       scroll-behavior: smooth;
-    }
-
-    @media (max-width: 768px) {
-      .top-bar {
-        flex-direction: column;
-        height: auto;
-        padding: 20px;
-      }
-
-      .hero-content h1 {
-        font-size: 2.2rem;
-      }
-
-      .imagenes-full {
-        flex-direction: column;
-      }
-
-      .imagenes-full img {
-        height: 220px;
-      }
     }
   </style>
 </head>
@@ -239,55 +211,10 @@
 
   <!-- IMÁGENES FUERA DE LA BURBUJA -->
   <section class="imagenes-full">
-    <div><img src="pez1.jpg" alt="Pez 1"></div>
-    <div><img src="pez2.jpg" alt="Pez 2"></div>
-    <div><img src="pez3.jpg" alt="Pez 3"></div>
+    <div><img src="img/pez1.jpg" alt="Pez 1"></div>
+    <div><img src="img/pez2.jpg" alt="Pez 2"></div>
+    <div><img src="img/pez3.jpg" alt="Pez 3"></div>
   </section>
-
-  <div class="content">
-
-    <div class="card" id="problema">
-      <h3>¿Por qué es un problema?</h3>
-      <p>Aquí va la justificación.</p>
-    </div>
-
-    <div class="card" id="marco">
-      <h3>¿Qué está pasando en nuestros mares?</h3>
-      <p>Aquí va el marco teórico.</p>
-    </div>
-
-    <div class="card" id="impacto">
-      <h3>Impacto en la vida marina</h3>
-      <p>Aquí va el impacto ambiental.</p>
-    </div>
-
-    <div class="card" id="personas">
-      <h3>Impacto en las personas</h3>
-      <p>Aquí va el impacto humano.</p>
-    </div>
-
-    <div class="card" id="soluciones">
-      <h3>¿Qué podemos hacer?</h3>
-      <p>Aquí van las soluciones.</p>
-    </div>
-
-    <div class="card quiz" id="juego">
-      <h3>Juego rápido</h3>
-      <p>¿Cuál es el residuo que más contamina el mar?</p>
-
-      <button onclick="respuesta(false)">Vidrio</button>
-      <button onclick="respuesta(true)">Plástico</button>
-      <button onclick="respuesta(false)">Papel</button>
-
-      <div id="resultado"></div>
-    </div>
-
-    <div class="card" id="fuentes">
-      <h3>Fuentes</h3>
-      <p>Aquí van los links.</p>
-    </div>
-
-  </div>
 
   <script>
     function respuesta(correcta) {
