@@ -181,6 +181,7 @@
       background-color: #e5e5e5;
       cursor: pointer;
       font-size: 1rem;
+      transition: all 0.3s;
     }
 
     .quiz button:hover {
@@ -190,6 +191,12 @@
     #resultado {
       margin-top: 15px;
       font-weight: 600;
+    }
+
+    /* Cuadro de nombres grande */
+    #cuadro-final ul {
+      list-style: disc;
+      padding-left: 20px;
     }
 
     html {
@@ -293,57 +300,61 @@ for (let i = 0; i < TOTAL_BURBUJAS; i++) {
   <div class="content">
     <div class="card" id="problema">
       <h3>Problema</h3>
-    <p>texto aqui...</p>
+      <p>texto aqui...</p>
     </div>
     
     <div class="card" id="marco">
       <h3>Marco</h3>
-    <p>texto aqui...</p>
+      <p>texto aqui...</p>
     </div>
     
     <div class="card" id="impacto">
       <h3>Impacto</h3>
-     <p>texto aqui...</p>
+      <p>texto aqui...</p>
     </div>
     
     <div class="card" id="personas">
       <h3>Personas</h3>
-     <p>texto aqui...</p>
+      <p>texto aqui...</p>
     </div>
     
     <div class="card" id="soluciones">
       <h3>Soluciones</h3>
-     <p>texto aqui...</p>
+      <p>texto aqui...</p>
     </div>
 
     <div class="card" id="fuentes">
       <h3>Fuentes</h3>
-    <p>texto aqui...</p>
+      <p>texto aqui...</p>
     </div>
 
-  <div class="card quiz" id="juego">
+    <!-- ===== NUEVO SISTEMA DE JUEGO ===== -->
+    <div class="card quiz" id="juego">
       <h3>Juego</h3>
-      <button onclick="respuesta(true)">Plástico</button>
-      <button onclick="respuesta(false)">Vidrio</button>
-      <div id="resultado"></div>
+      <button id="playBtn">▶️ Empezar Juego</button>
+
+      <div id="preguntas" style="display:none; margin-top:15px;">
+        <p id="pregunta-texto">¿Cuál de estos materiales contamina más el mar?</p>
+        <button onclick="respuesta(0)">Plástico</button>
+        <button onclick="respuesta(1)">Vidrio</button>
+        <div id="resultado" style="margin-top:15px; font-weight:600;"></div>
+      </div>
     </div>
+
   </div>
 
-  <div class="card" id="encabezadonull">
-      <h3>Un proyecto de:</h3>
-    <p>Matias Portugal
-    Luis Bolaños
-    Camila Carriel
-    Dylan Vera</p>
-    </div>
-  
-  <script>
-    function respuesta(ok) {
-      const r = document.getElementById("resultado");
-      r.textContent = ok ? "✅ Correcto" : "❌ Incorrecto";
-      r.style.color = ok ? "green" : "red";
-    }
+  <!-- CUADRO GRANDE ABAJO -->
+  <div class="card" id="cuadro-final" style="min-height:200px; margin-top:40px;">
+    <h3>Un proyecto de:</h3>
+    <ul id="nombres-lista">
+      <li>Matias Portugal</li>
+      <li>Luis Bolaños</li>
+      <li>Camila Carriel</li>
+      <li>Dylan Vera</li>
+    </ul>
+  </div>
 
+  <script>
     const front = document.getElementById("fondo-front");
     const back = document.getElementById("fondo-back");
 
@@ -382,7 +393,92 @@ for (let i = 0; i < TOTAL_BURBUJAS; i++) {
       back.style.transform = `translateY(${window.scrollY * 0.15}px)`;
       front.style.transform = `translateY(${window.scrollY * 0.3}px)`;
     });
+
+    /* ===== SISTEMA DE JUEGO ===== */
+    const playBtn = document.getElementById("playBtn");
+    const preguntasDiv = document.getElementById("preguntas");
+    const resultadoDiv = document.getElementById("resultado");
+
+    const preguntas = [
+      { texto: "¿Cuál de estos materiales contamina más el mar?", opciones:["Plástico","Vidrio"], correcta:0 }
+      // Puedes añadir más preguntas aquí
+    ];
+
+    let respuestasCorrectas = 0;
+    let preguntaActual = 0;
+
+    // Animación de botón azul-verde degradado
+    let toggleColor = true;
+    setInterval(() => {
+      if (playBtn) {
+        playBtn.style.background = toggleColor 
+          ? "linear-gradient(to right, #3b82f6, #22c55e)"
+          : "linear-gradient(to right, #22c55e, #3b82f6)";
+        toggleColor = !toggleColor;
+        playBtn.style.color = "white";
+        playBtn.style.fontWeight = "600";
+      }
+    }, 1000);
+
+    playBtn.addEventListener("click", () => {
+      playBtn.style.display = "none";
+      preguntasDiv.style.display = "block";
+    });
+
+    function respuesta(opcion) {
+      const correcta = preguntas[preguntaActual].correcta;
+      if (opcion === correcta) respuestasCorrectas++;
+
+      preguntaActual++;
+
+      if (preguntaActual >= preguntas.length) {
+        const porcentaje = Math.round((respuestasCorrectas / preguntas.length) * 100);
+        resultadoDiv.textContent = `Tu puntaje: ${porcentaje}%`;
+        resultadoDiv.style.color = porcentaje >= 60 ? "green" : "red";
+
+        if (porcentaje >= 60) {
+          resultadoDiv.textContent += " ✅ ¡Felicidades, pasaste!";
+        } else {
+          const retryBtn = document.createElement("button");
+          retryBtn.textContent = "Volver a intentar";
+          retryBtn.style.marginTop = "10px";
+          retryBtn.style.padding = "10px";
+          retryBtn.style.border = "none";
+          retryBtn.style.borderRadius = "8px";
+          retryBtn.style.backgroundColor = "#3b82f6";
+          retryBtn.style.color = "white";
+          retryBtn.style.cursor = "pointer";
+
+          retryBtn.onclick = () => {
+            respuestasCorrectas = 0;
+            preguntaActual = 0;
+            resultadoDiv.textContent = "";
+            retryBtn.remove();
+            preguntasDiv.style.display = "block";
+          };
+
+          resultadoDiv.appendChild(document.createElement("br"));
+          resultadoDiv.appendChild(retryBtn);
+        }
+
+        preguntasDiv.style.display = "none";
+      } else {
+        document.getElementById("pregunta-texto").textContent = preguntas[preguntaActual].texto;
+        const botones = preguntasDiv.querySelectorAll("button");
+        botones.forEach((btn, index) => btn.textContent = preguntas[preguntaActual].opciones[index]);
+      }
+    }
   </script>
+
+  <div encabezadonull>
+    <h3>Un proyecto de:</h3>
+    <ul>
+      <li>Matias Portugal</li>
+      <li>Luis Bolaños</li>
+      <li>Camila Carriel</li>
+      <li>Dylan Vera</li>
+    </ul>
+  </div>
 
 </body>
 </html>
