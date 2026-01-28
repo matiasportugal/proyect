@@ -131,20 +131,22 @@
       line-height: 1.7;
     }
 
-    /* IMÁGENES INICIO */
-    .inicio-imagenes {
+    /* SECCIÓN IMÁGENES FULL WIDTH */
+    .imagenes-full {
+      width: 100%;
       display: flex;
       gap: 15px;
-      margin-top: 20px;
+      padding: 40px 30px;
     }
 
-    .inicio-imagenes img {
+    .imagenes-full img {
       width: 100%;
-      border-radius: 12px;
+      height: 280px;
       object-fit: cover;
+      border-radius: 14px;
     }
 
-    .inicio-imagenes div {
+    .imagenes-full div {
       flex: 1;
     }
 
@@ -184,8 +186,12 @@
         font-size: 2.2rem;
       }
 
-      .inicio-imagenes {
+      .imagenes-full {
         flex-direction: column;
+      }
+
+      .imagenes-full img {
+        height: 220px;
       }
     }
   </style>
@@ -222,21 +228,23 @@
   </section>
 
   <div class="content">
-
     <div class="card" id="inicio-card">
       <h3>Inicio</h3>
       <p>
         La contaminación del mar en el Ecuador es un problema grave causado principalmente por la basura,
         especialmente plásticos, que llegan al océano desde ciudades, ríos y esteros.
       </p>
-
-      <!-- IMÁGENES -->
-      <div class="inicio-imagenes">
-        <div><img src="pez1.jpg" alt="Pez 1"></div>
-        <div><img src="pez2.jpg" alt="Pez 2"></div>
-        <div><img src="pez3.jpg" alt="Pez 3"></div>
-      </div>
     </div>
+  </div>
+
+  <!-- IMÁGENES FUERA DE LA BURBUJA -->
+  <section class="imagenes-full">
+    <div><img src="pez1.jpg" alt="Pez 1"></div>
+    <div><img src="pez2.jpg" alt="Pez 2"></div>
+    <div><img src="pez3.jpg" alt="Pez 3"></div>
+  </section>
+
+  <div class="content">
 
     <div class="card" id="problema">
       <h3>¿Por qué es un problema?</h3>
