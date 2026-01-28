@@ -2,81 +2,201 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Cuidemos nuestros mares</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La basura en los ecosistemas marinos ecuatorianos</title>
 
-  <!-- Fuente redondita -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <!-- Fuente bonita y redondita -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f2f2f2;
+      color: #222;
+    }
+
+    /* BARRA SUPERIOR (GRIS) */
+    .top-bar {
+      background-color: #353535;
+      height: 120px; /* DOBLE de grande */
+      display: flex;
+      align-items: center;
+      padding-left: 30px;
+    }
+
+    .top-bar img {
+      height: 70px;
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      height: 70vh;
+      background-image: url("img/fondo.jpg");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(4px);
+    }
+
+    .hero-content {
+      position: relative;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 20px;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    .hero-content h2 {
+      font-size: 1.3rem;
+      font-weight: 300;
+      margin-top: 10px;
+    }
+
+    /* CONTENIDO */
+    .content {
+      max-width: 900px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .content h3 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+    }
+
+    .content p {
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    /* BOTÓN LATERAL */
+    .menu {
+      position: fixed;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .menu-button {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #353535;
+      color: white;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .menu-box {
+      display: none;
+      position: absolute;
+      left: 60px;
+      top: 0;
+      background: white;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .menu:hover .menu-box {
+      display: block;
+    }
+
+    .menu-box a {
+      display: block;
+      text-decoration: none;
+      color: #333;
+      padding: 8px 10px;
+      border-radius: 6px;
+    }
+
+    .menu-box a:hover {
+      background-color: #eee;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .top-bar {
+        height: 140px;
+        justify-content: center;
+        padding-left: 0;
+      }
+
+      .top-bar img {
+        height: 80px;
+      }
+
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero-content h2 {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
+
+  <!-- BARRA SUPERIOR -->
   <div class="top-bar">
-  <img src="img/logo.png" alt="Logo del colegio">
-</div>
-
-<!-- MENÚ FLOTANTE -->
-<div class="menu-container">
-  <div class="menu-button">➤</div>
-  <div class="menu">
-    <button onclick="showSection('blog')">📰 Blog</button>
-    <button onclick="showSection('game')">🎮 Juego</button>
+    <img src="img/logo.png" alt="Logo del colegio">
   </div>
-</div>
-
-<!-- BLOG -->
-<section id="blog" class="section active">
 
   <!-- HERO -->
-  <header class="hero">
+  <section class="hero">
     <div class="hero-content">
-      <h1>Cuidemos nuestros mares</h1>
-      <p>Por un Ecuador mejor</p>
+      <h1>La basura en los ecosistemas marinos ecuatorianos</h1>
+      <h2>Por un Ecuador mejor</h2>
     </div>
-  </header>
+  </section>
+
+  <!-- MENÚ -->
+  <div class="menu">
+    <div class="menu-button">➜</div>
+    <div class="menu-box">
+      <a href="#">Introducción</a>
+      <a href="#">Impacto</a>
+    </div>
+  </div>
 
   <!-- CONTENIDO -->
-  <main class="content">
-    <h2>Introducción</h2>
-    <p class="placeholder">
-      Aquí va la introducción del proyecto.
+  <div class="content">
+    <h3>Introducción</h3>
+    <p>
+      Aquí mañana escribes toda la información de tu proyecto escolar.
+      Puedes añadir más párrafos sin problema.
     </p>
+  </div>
 
-    <h2>Información</h2>
-    <p class="placeholder">
-      Aquí va toda la información sobre la basura en los ecosistemas marinos ecuatorianos.
-    </p>
-
-    <h2>Fuentes</h2>
-    <ul>
-      <li><a href="#" target="_blank">Fuente 1</a></li>
-      <li><a href="#" target="_blank">Fuente 2</a></li>
-      <li><a href="#" target="_blank">Fuente 3</a></li>
-    </ul>
-  </main>
-
-</section>
-
-<!-- JUEGO -->
-<section id="game" class="section">
-
-  <header class="hero small">
-    <div class="hero-content">
-      <h1>Juego de Preguntas</h1>
-      <p>Tipo Kahoot</p>
-    </div>
-  </header>
-
-  <main class="content">
-    <p class="placeholder">
-      Aquí irá el juego mañana.
-    </p>
-  </main>
-
-</section>
-
-<script src="script.js"></script>
 </body>
 </html>
