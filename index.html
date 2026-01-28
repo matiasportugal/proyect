@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -18,38 +17,26 @@
     body {
       background-color: #f2f2f2;
       color: #222;
+      padding-top: 100px; /* espacio para la barra fija */
     }
 
-    /* BARRA */
+    /* BARRA SUPERIOR FIJA */
     .top-bar {
       background-color: #f2f2f2;
       height: 100px;
       display: flex;
       align-items: center;
       padding: 0 30px;
-      gap: 30px;
+
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
     }
 
     .top-bar img {
       height: 70px;
-    }
-
-    /* NAV SUPERIOR */
-    .nav-links {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: #000;
-      font-weight: 500;
-      transition: 0.3s;
-    }
-
-    .nav-links a:hover {
-      color: #facc15;
     }
 
     /* HERO */
@@ -107,7 +94,7 @@
       gap: 30px;
     }
 
-    /* BURBUJAS */
+    /* TARJETAS */
     .card {
       background: white;
       padding: 30px;
@@ -181,11 +168,19 @@
       scroll-behavior: smooth;
     }
 
+    /* RESPONSIVE */
     @media (max-width: 768px) {
+      body {
+        padding-top: 140px;
+      }
+
       .top-bar {
-        height: auto;
-        flex-direction: column;
-        padding: 20px;
+        height: 140px;
+        justify-content: center;
+      }
+
+      .top-bar img {
+        height: 80px;
       }
 
       .hero-content h1 {
@@ -204,16 +199,6 @@
   <!-- BARRA SUPERIOR -->
   <div class="top-bar">
     <img src="img/logo.png" alt="Logo del colegio">
-
-    <div class="nav-links">
-      <a href="#inicio-card">Inicio</a>
-      <a href="#problema">¿Por qué es un problema?</a>
-      <a href="#marco">¿Qué está pasando?</a>
-      <a href="#impacto">Impacto marino</a>
-      <a href="#personas">Impacto humano</a>
-      <a href="#soluciones">Soluciones</a>
-      <a href="#fuentes">Fuentes</a>
-    </div>
   </div>
 
   <!-- HERO -->
@@ -229,42 +214,56 @@
     </div>
   </section>
 
+  <!-- MENÚ -->
+  <div class="menu">
+    <div class="menu-button">➜</div>
+    <div class="menu-box">
+      <a href="#inicio-card">Inicio</a>
+      <a href="#problema">¿Por qué es un problema?</a>
+      <a href="#marco">¿Qué está pasando?</a>
+      <a href="#impacto">Impacto marino</a>
+      <a href="#personas">Impacto humano</a>
+      <a href="#soluciones">Soluciones</a>
+      <a href="#fuentes">Fuentes</a>
+    </div>
+  </div>
+
   <!-- CONTENIDO -->
   <div class="content">
 
     <div class="card" id="inicio-card">
       <h3>Inicio</h3>
-      <p>La contaminación del mar en el Ecuador es un problema grave causado principalmente por la basura.</p>
+      <p>Contenido inicial aquí.</p>
     </div>
 
     <div class="card" id="problema">
       <h3>¿Por qué es un problema?</h3>
-      <p>Aquí va la justificación.</p>
+      <p>Justificación.</p>
     </div>
 
     <div class="card" id="marco">
-      <h3>¿Qué está pasando en nuestros mares?</h3>
-      <p>Aquí va el marco teórico.</p>
+      <h3>¿Qué está pasando?</h3>
+      <p>Marco teórico.</p>
     </div>
 
     <div class="card" id="impacto">
-      <h3>Impacto en la vida marina</h3>
-      <p>Aquí va el impacto ambiental.</p>
+      <h3>Impacto marino</h3>
+      <p>Impacto ambiental.</p>
     </div>
 
     <div class="card" id="personas">
-      <h3>¿Cómo nos afecta a nosotros?</h3>
-      <p>Aquí va el impacto humano.</p>
+      <h3>Impacto humano</h3>
+      <p>Impacto social.</p>
     </div>
 
     <div class="card" id="soluciones">
-      <h3>¿Qué podemos hacer?</h3>
-      <p>Aquí van las soluciones.</p>
+      <h3>Soluciones</h3>
+      <p>Propuestas.</p>
     </div>
 
     <div class="card" id="fuentes">
       <h3>Fuentes</h3>
-      <p>Aquí van los links.</p>
+      <p>Links.</p>
     </div>
 
   </div>
