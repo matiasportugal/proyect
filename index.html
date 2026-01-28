@@ -25,7 +25,7 @@
 
     /* ===== FONDOS DECORATIVOS ===== */
     #fondo-back, #fondo-front {
-      position: absolute;
+      position: fixed;
       inset: 0;
       pointer-events: none;
       z-index: 0;
@@ -303,8 +303,10 @@
       back.appendChild(img);
     }
 
+    /* ===== EFECTO PROFUNDIDAD ===== */
     window.addEventListener("scroll", () => {
       back.style.transform = `translateY(${window.scrollY * 0.15}px)`;
+      front.style.transform = `translateY(${window.scrollY * 0.3}px)`;
     });
   </script>
 
