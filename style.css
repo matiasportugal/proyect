@@ -16,11 +16,14 @@ body {
 ========================= */
 .top-bar {
   width: 100%;
-  height: 240px; /* DOBLE */
+  height: 240px;
   background: #353535;
   display: flex;
   align-items: center;
   padding-left: 40px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .top-bar img {
@@ -54,6 +57,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
+  z-index: 1;
 }
 
 .hero h1 {
@@ -75,6 +79,8 @@ body {
   max-width: 900px;
   margin: auto;
   padding: 40px 20px;
+  position: relative;
+  z-index: 1;
 }
 
 h2 {
@@ -93,7 +99,7 @@ h2 {
   top: 50%;
   left: 15px;
   transform: translateY(-50%);
-  z-index: 100;
+  z-index: 20;
 }
 
 .menu-button {
@@ -140,10 +146,72 @@ h2 {
 }
 
 /* =========================
-   RESPONSIVE (CELULAR)
+   TEXTO COLORES
+========================= */
+.eco {
+  color: #22c55e;
+  text-decoration: underline;
+}
+
+.mar {
+  color: #0a2540;
+}
+
+.ecu {
+  font-weight: 800;
+}
+
+.ecu-amarillo {
+  color: #facc15;
+}
+
+.ecu-azul {
+  color: #2563eb;
+}
+
+.ecu-rojo {
+  color: #dc2626;
+}
+
+/* =========================
+   FONDO DECORATIVO (ARREGLADO)
+========================= */
+.fondo-decorativo {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.fondo-decorativo img {
+  position: absolute;
+  opacity: 0.25;
+  filter: blur(4px);
+}
+
+.fondo-decorativo img.back {
+  width: 70px;
+  opacity: 0.15;
+  filter: blur(7px);
+}
+
+.fondo-decorativo img.mid {
+  width: 100px;
+  opacity: 0.22;
+  filter: blur(5px);
+}
+
+.fondo-decorativo img.front {
+  width: 140px;
+  opacity: 0.3;
+  filter: blur(3px);
+}
+
+/* =========================
+   RESPONSIVE
 ========================= */
 @media (max-width: 768px) {
-
   .top-bar {
     height: 200px;
     justify-content: center;
@@ -165,64 +233,4 @@ h2 {
   .hero p {
     font-size: 1rem;
   }
-
-  .content {
-    padding: 25px 15px;
-  }
-}
-/* Palabra ecosistemas */
-.eco {
-  color: #22c55e;
-  text-decoration: underline;
-}
-
-/* Palabra marinos */
-.mar {
-  color: #0a2540;
-}
-
-/* Ecuador colores */
-.ecu {
-  font-weight: 800;
-}
-
-.ecu-amarillo {
-  color: #facc15;
-}
-
-.ecu-azul {
-  color: #2563eb;
-}
-
-.ecu-rojo {
-  color: #dc2626;
-}
-/* FONDO DECORATIVO */
-.fondo-decorativo {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
-}
-
-.fondo-decorativo img {
-  position: absolute;
-  opacity: 0.25;
-  max-width: 120px;
-}
-#fondoDecorativo {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-}
-
-#fondoDecorativo img {
-  position: absolute;
-  opacity: 0.25;
-  width: 120px;
 }
