@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pintagua</title>
 
-  <!-- FAVICON -->
   <link rel="icon" type="image/png" href="img/logo.png">
-
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
@@ -21,24 +19,32 @@
     body {
       background-color: #C4C4C4;
       color: #222;
+      position: relative;
+      overflow-x: hidden;
     }
 
-    /* ===== FONDO DECORATIVO ===== */
-    .fondo-decorativo {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      overflow: hidden;
-    }
-
-    .fondo-decorativo img {
+    /* ===== FONDOS DECORATIVOS ===== */
+    #fondo-back, #fondo-front {
       position: absolute;
-      opacity: 0.25;
-      max-width: 120px;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
     }
 
-    /* ===== BARRA SUPERIOR ===== */
+    #fondo-back img {
+      position: absolute;
+      width: 70px;
+      opacity: 0.15;
+      filter: blur(3px);
+    }
+
+    #fondo-front img {
+      position: absolute;
+      width: 120px;
+      opacity: 0.25;
+    }
+
+    /* ===== BARRA ===== */
     .top-bar {
       background-color: #f2f2f2;
       height: 100px;
@@ -48,7 +54,7 @@
       gap: 30px;
       position: sticky;
       top: 0;
-      z-index: 5;
+      z-index: 10;
       border-bottom: 1px solid #ddd;
     }
 
@@ -85,7 +91,7 @@
       background-image: url("img/fondo.jpg");
       background-size: cover;
       background-position: center;
-      z-index: 2;
+      z-index: 1;
     }
 
     .hero::before {
@@ -105,10 +111,18 @@
       align-items: center;
       text-align: center;
       color: white;
+      padding: 20px;
     }
 
     .hero-content h1 {
       font-size: 3rem;
+      font-weight: 700;
+    }
+
+    .hero-content h2 {
+      font-size: 1.3rem;
+      font-weight: 300;
+      margin-top: 10px;
     }
 
     .eco { color: #22c55e; text-decoration: underline; }
@@ -136,7 +150,7 @@
       scroll-margin-top: 120px;
     }
 
-    /* ===== IMÁGENES GRANDES ===== */
+    /* ===== IMÁGENES FULL ===== */
     .imagenes-full {
       width: 100%;
       display: flex;
@@ -146,15 +160,15 @@
       z-index: 2;
     }
 
-    .imagenes-full div {
-      flex: 1;
-    }
-
     .imagenes-full img {
       width: 100%;
       height: 280px;
       object-fit: cover;
       border-radius: 14px;
+    }
+
+    .imagenes-full div {
+      flex: 1;
     }
 
     /* ===== JUEGO ===== */
@@ -164,12 +178,13 @@
       padding: 12px;
       border: none;
       border-radius: 8px;
+      background-color: #e5e5e5;
       cursor: pointer;
-      background: #e5e5e5;
+      font-size: 1rem;
     }
 
     .quiz button:hover {
-      background: #facc15;
+      background-color: #facc15;
     }
 
     #resultado {
@@ -177,118 +192,121 @@
       font-weight: 600;
     }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
   </style>
 </head>
 
 <body>
-  <div id="fondoDecorativo"></div>
 
+  <!-- FONDOS -->
+  <div id="fondo-back"></div>
+  <div id="fondo-front"></div>
 
-<!-- FONDO -->
-<div class="fondo-decorativo" id="fondoDecorativo"></div>
-
-<!-- NAV -->
-<div class="top-bar">
-  <img src="img/logo.png" alt="Logo">
-
-  <div class="nav-links">
-    <a href="#inicio">Inicio</a>
-    <a href="#problema">Problema</a>
-    <a href="#marco">Marco teórico</a>
-    <a href="#impacto">Impacto marino</a>
-    <a href="#personas">Impacto humano</a>
-    <a href="#soluciones">Soluciones</a>
-    <span class="separator">|</span>
-    <a href="#juego">Juego</a>
-    <a href="#fuentes">Fuentes</a>
-  </div>
-</div>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-content">
-    <h1>
-      La basura en los 
-      <span class="eco">ecosistemas</span>
-      <span class="mar">marinos</span><br>
-      <span class="ecu-amarillo">ecua</span><span class="ecu-azul">toria</span><span class="ecu-rojo">nos</span>
-    </h1>
-    <h2>Por un Ecuador mejor</h2>
-  </div>
-</section>
-
-<!-- CONTENIDO -->
-<div class="content">
-
-  <div class="card" id="inicio">
-    <h3>Inicio</h3>
-    <p>La contaminación del mar en el Ecuador es un problema grave causado principalmente por la basura, especialmente plásticos, que llegan al océano desde ciudades, ríos y esteros. Estos residuos dañan a los animales marinos al ser ingeridos o al enredarse en ellos, afectando ecosistemas únicos como Galápagos. Además, esta contaminación perjudica a las comunidades que dependen del mar, por lo que es importante crear conciencia y buscar soluciones para proteger los ecosistemas marinos del país.</p>
+  <!-- BARRA -->
+  <div class="top-bar">
+    <img src="img/logo.png">
+    <div class="nav-links">
+      <a href="#inicio-card">Inicio</a>
+      <a href="#problema">Problema</a>
+      <a href="#marco">Marco teórico</a>
+      <a href="#impacto">Impacto marino</a>
+      <a href="#personas">Impacto humano</a>
+      <a href="#soluciones">Soluciones</a>
+      <span class="separator">|</span>
+      <a href="#juego">Juego</a>
+      <a href="#fuentes">Fuentes</a>
+    </div>
   </div>
 
-</div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>
+        La basura en los 
+        <span class="eco">ecosistemas</span>
+        <span class="mar">marinos</span><br>
+        <span class="ecu-amarillo">ecua</span><span class="ecu-azul">toria</span><span class="ecu-rojo">nos</span>
+      </h1>
+      <h2>Por un Ecuador mejor</h2>
+    </div>
+  </section>
 
-<section class="imagenes-full">
-  <div><img src="img/pez1.jpg"></div>
-  <div><img src="img/pez2.jpg"></div>
-  <div><img src="img/pez3.jpg"></div>
-</section>
-
-<div class="content">
-
-  <div class="card" id="problema"><h3>¿Por qué es un problema?</h3></div>
-  <div class="card" id="marco"><h3>Marco teórico</h3></div>
-  <div class="card" id="impacto"><h3>Impacto marino</h3></div>
-  <div class="card" id="personas"><h3>Impacto humano</h3></div>
-  <div class="card" id="soluciones"><h3>Soluciones</h3></div>
-
-  <div class="card quiz" id="juego">
-    <h3>Juego rápido</h3>
-    <p>¿Qué contamina más el mar?</p>
-    <button onclick="respuesta(false)">Vidrio</button>
-    <button onclick="respuesta(true)">Plástico</button>
-    <button onclick="respuesta(false)">Papel</button>
-    <div id="resultado"></div>
+  <div class="content">
+    <div class="card" id="inicio-card">
+      <h3>Inicio</h3>
+      <p>Texto de inicio…</p>
+    </div>
   </div>
 
-  <div class="card" id="fuentes">
-    <h3>Fuentes</h3>
+  <section class="imagenes-full">
+    <div><img src="img/pez1.jpg"></div>
+    <div><img src="img/pez2.jpg"></div>
+    <div><img src="img/pez3.jpg"></div>
+  </section>
+
+  <div class="content">
+    <div class="card" id="problema"><h3>Problema</h3></div>
+    <div class="card" id="marco"><h3>Marco</h3></div>
+    <div class="card" id="impacto"><h3>Impacto</h3></div>
+    <div class="card" id="personas"><h3>Personas</h3></div>
+    <div class="card" id="soluciones"><h3>Soluciones</h3></div>
+
+    <div class="card quiz" id="juego">
+      <h3>Juego</h3>
+      <button onclick="respuesta(true)">Plástico</button>
+      <button onclick="respuesta(false)">Vidrio</button>
+      <div id="resultado"></div>
+    </div>
+
+    <div class="card" id="fuentes"><h3>Fuentes</h3></div>
   </div>
 
-</div>
+  <script>
+    function respuesta(ok) {
+      const r = document.getElementById("resultado");
+      r.textContent = ok ? "✅ Correcto" : "❌ Incorrecto";
+      r.style.color = ok ? "green" : "red";
+    }
 
-<script>
-  function respuesta(ok) {
-    const r = document.getElementById("resultado");
-    r.textContent = ok ? "✅ Correcto" : "❌ Incorrecto";
-    r.style.color = ok ? "green" : "red";
-  }
+    const front = document.getElementById("fondo-front");
+    const back = document.getElementById("fondo-back");
 
-  const fondo = document.getElementById("fondoDecorativo");
-  const w = window.innerWidth;
-  const h = document.body.scrollHeight;
+    function rand(min, max) {
+      return Math.random() * (max - min) + min;
+    }
 
-  function rand(min, max) {
-    return Math.random() * (max - min) + min;
-  }
+    function azulRandom() {
+      return `hue-rotate(${rand(180,220)}deg) saturate(${rand(80,140)}%)`;
+    }
 
-  function ponerImg(src, rotar) {
-    const i = document.createElement("img");
-    i.src = src;
-    i.style.left = rand(0, w - 120) + "px";
-    i.style.top = rand(0, h - 120) + "px";
-    if (rotar) i.style.transform = `rotate(${rand(0,360)}deg)`;
-    fondo.appendChild(i);
-  }
+    const alto = document.body.scrollHeight;
+    const ancho = window.innerWidth;
 
-  for (let i = 0; i < rand(8,15); i++) {
-    ponerImg(Math.random() > 0.5 ? "img/fish fondo1.png" : "img/fish fondo2.png", true);
-  }
+    for (let i = 0; i < 15; i++) {
+      const img = document.createElement("img");
+      img.src = Math.random() > 0.5 ? "img/fish fondo1.png" : "img/fish fondo2.png";
+      img.style.left = rand(0, ancho - 150) + "px";
+      img.style.top = rand(0, alto) + "px";
+      img.style.transform = `rotate(${rand(0,360)}deg)`;
+      img.style.filter = azulRandom();
+      front.appendChild(img);
+    }
 
-  for (let i = 0; i < rand(5,10); i++) {
-    ponerImg("img/burbujas.png", false);
-  }
-</script>
+    for (let i = 0; i < 10; i++) {
+      const img = document.createElement("img");
+      img.src = "img/burbujas.png";
+      img.style.left = rand(0, ancho - 100) + "px";
+      img.style.top = rand(0, alto) + "px";
+      img.style.filter = azulRandom();
+      back.appendChild(img);
+    }
+
+    window.addEventListener("scroll", () => {
+      back.style.transform = `translateY(${window.scrollY * 0.15}px)`;
+    });
+  </script>
 
 </body>
 </html>
