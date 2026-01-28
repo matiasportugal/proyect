@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pintagua</title>
 
-  <!-- Fuente -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
@@ -21,9 +20,7 @@
       color: #222;
     }
 
-    /* =====================
-       BARRA SUPERIOR
-    ===================== */
+    /* BARRA */
     .top-bar {
       background-color: #f2f2f2;
       height: 100px;
@@ -36,9 +33,7 @@
       height: 70px;
     }
 
-    /* =====================
-       HERO
-    ===================== */
+    /* HERO */
     .hero {
       position: relative;
       height: 70vh;
@@ -78,50 +73,41 @@
       margin-top: 10px;
     }
 
-    /* COLORES DEL TÍTULO */
-    .eco {
-      color: #22c55e;
-      text-decoration: underline;
-    }
-
-    .mar {
-      color: #0a2540;
-    }
-
+    .eco { color: #22c55e; text-decoration: underline; }
+    .mar { color: #0a2540; }
     .ecu-amarillo { color: #facc15; }
     .ecu-azul { color: #2563eb; }
     .ecu-rojo { color: #dc2626; }
 
-    /* =====================
-       CONTENIDO
-    ===================== */
+    /* CONTENEDOR */
     .content {
       max-width: 900px;
       margin: 40px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    /* BURBUJAS */
+    .card {
       background: white;
       padding: 30px;
       border-radius: 14px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
-
-    section {
-      margin-bottom: 60px;
       scroll-margin-top: 120px;
     }
 
-    .content h3 {
+    .card h3 {
       font-size: 1.6rem;
       margin-bottom: 10px;
     }
 
-    .content p {
+    .card p {
       line-height: 1.7;
       font-size: 1rem;
     }
 
-    /* =====================
-       MENÚ LATERAL
-    ===================== */
+    /* MENÚ */
     .menu {
       position: fixed;
       left: 15px;
@@ -152,7 +138,7 @@
       border-radius: 10px;
       padding: 10px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-      min-width: 200px;
+      min-width: 220px;
     }
 
     .menu:hover .menu-box {
@@ -165,7 +151,6 @@
       color: #333;
       padding: 8px 10px;
       border-radius: 6px;
-      font-size: 0.95rem;
     }
 
     .menu-box a:hover {
@@ -177,9 +162,6 @@
       scroll-behavior: smooth;
     }
 
-    /* =====================
-       RESPONSIVE
-    ===================== */
     @media (max-width: 768px) {
       .top-bar {
         height: 140px;
@@ -204,12 +186,10 @@
 
 <body>
 
-  <!-- BARRA -->
   <div class="top-bar">
     <img src="img/logo.png" alt="Logo del colegio">
   </div>
 
-  <!-- HERO -->
   <section class="hero" id="inicio">
     <div class="hero-content">
       <h1>
@@ -226,7 +206,7 @@
   <div class="menu">
     <div class="menu-button">➜</div>
     <div class="menu-box">
-      <a href="#inicio">Inicio</a>
+      <a href="#inicio-card">Inicio</a>
       <a href="#problema">¿Por qué es un problema?</a>
       <a href="#marco">¿Qué está pasando?</a>
       <a href="#impacto">Impacto marino</a>
@@ -239,35 +219,43 @@
   <!-- CONTENIDO -->
   <div class="content">
 
-    <section id="problema">
+    <div class="card" id="inicio-card">
+      <h3>Inicio</h3>
+      <p>
+        La contaminación del mar en el Ecuador es un problema grave causado principalmente por la basura,
+        especialmente plásticos, que llegan al océano desde ciudades, ríos y esteros.
+      </p>
+    </div>
+
+    <div class="card" id="problema">
       <h3>¿Por qué es un problema?</h3>
       <p>Aquí va la justificación.</p>
-    </section>
+    </div>
 
-    <section id="marco">
+    <div class="card" id="marco">
       <h3>¿Qué está pasando en nuestros mares?</h3>
       <p>Aquí va el marco teórico.</p>
-    </section>
+    </div>
 
-    <section id="impacto">
+    <div class="card" id="impacto">
       <h3>Impacto en la vida marina</h3>
       <p>Aquí va el impacto ambiental.</p>
-    </section>
+    </div>
 
-    <section id="personas">
+    <div class="card" id="personas">
       <h3>¿Cómo nos afecta a nosotros?</h3>
       <p>Aquí va el impacto humano.</p>
-    </section>
+    </div>
 
-    <section id="soluciones">
+    <div class="card" id="soluciones">
       <h3>¿Qué podemos hacer?</h3>
       <p>Aquí van las soluciones.</p>
-    </section>
+    </div>
 
-    <section id="fuentes">
+    <div class="card" id="fuentes">
       <h3>Fuentes</h3>
       <p>Aquí van los links.</p>
-    </section>
+    </div>
 
   </div>
 
