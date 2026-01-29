@@ -436,9 +436,33 @@ for (let i = 0; i < TOTAL_BURBUJAS; i++) {
     const resultadoDiv = document.getElementById("resultado");
 
     const preguntas = [
-      { texto: "¿Cuál de estos materiales contamina más el mar?", opciones:["Plástico","Vidrio"], correcta:0 }
-      // Puedes añadir más preguntas aquí
-    ];
+  {
+    texto: "¿Cuál de estos materiales contamina más el mar?",
+    opciones: ["Plástico", "Vidrio", "Metal"],
+    correcta: 0
+  },
+  {
+    texto: "¿Qué animal marino suele confundirse con fundas plásticas?",
+    opciones: ["Tiburón", "Tortuga", "Delfín"],
+    correcta: 1
+  },
+  {
+    texto: "¿Dónde termina gran parte de la basura marina?",
+    opciones: ["En arrecifes", "En el fondo del océano", "En ríos"],
+    correcta: 1
+  },
+  {
+    texto: "¿Qué objeto es más peligroso para peces?",
+    opciones: ["Botellas", "Redes de pesca", "Latas"],
+    correcta: 1
+  },
+  {
+    texto: "¿Cuál acción ayuda más al mar?",
+    opciones: ["Usar menos plástico", "Tirar basura lejos", "Quemar residuos"],
+    correcta: 0
+  }
+];
+
 
     let respuestasCorrectas = 0;
     let preguntaActual = 0;
@@ -462,48 +486,54 @@ for (let i = 0; i < TOTAL_BURBUJAS; i++) {
     });
 
     function respuesta(opcion) {
-      const correcta = preguntas[preguntaActual].correcta;
-      if (opcion === correcta) respuestasCorrectas++;
+  const correcta = preguntas[preguntaActual].correcta;
+  if (opcion === correcta) respuestasCorrectas++;
 
-      preguntaActual++;
+  preguntaActual++;
 
-      if (preguntaActual >= preguntas.length) {
-        const porcentaje = Math.round((respuestasCorrectas / preguntas.length) * 100);
-        resultadoDiv.textContent = `Tu puntaje: ${porcentaje}%`;
-        resultadoDiv.style.color = porcentaje >= 60 ? "green" : "red";
+  if (preguntaActual >= preguntas.length) {
+    const malas = preguntas.length - respuestasCorrectas;
 
-        if (porcentaje >= 60) {
-          resultadoDiv.textContent += " ✅ ¡Felicidades, pasaste!";
-        } else {
-          const retryBtn = document.createElement("button");
-          retryBtn.textContent = "Volver a intentar";
-          retryBtn.style.marginTop = "10px";
-          retryBtn.style.padding = "10px";
-          retryBtn.style.border = "none";
-          retryBtn.style.borderRadius = "8px";
-          retryBtn.style.backgroundColor = "#3b82f6";
-          retryBtn.style.color = "white";
-          retryBtn.style.cursor = "pointer";
+    resultadoDiv.innerHTML = `
+      Respondiste bien <b>${respuestasCorrectas}</b> preguntas<br>
+      Respondiste mal <b>${malas}</b> preguntas
+    `;
 
-          retryBtn.onclick = () => {
-            respuestasCorrectas = 0;
-            preguntaActual = 0;
-            resultadoDiv.textContent = "";
-            retryBtn.remove();
-            preguntasDiv.style.display = "block";
-          };
+    resultadoDiv.style.color = respuestasCorrectas >= 3 ? "green" : "red";
 
-          resultadoDiv.appendChild(document.createElement("br"));
-          resultadoDiv.appendChild(retryBtn);
-        }
+    const retryBtn = document.createElement("button");
+    retryBtn.textContent = "🔄 Volver a intentar";
+    retryBtn.style.marginTop = "15px";
+    retryBtn.style.padding = "12px";
+    retryBtn.style.border = "none";
+    retryBtn.style.borderRadius = "8px";
+    retryBtn.style.backgroundColor = "#22c55e";
+    retryBtn.style.color = "white";
+    retryBtn.style.cursor = "pointer";
 
-        preguntasDiv.style.display = "none";
-      } else {
-        document.getElementById("pregunta-texto").textContent = preguntas[preguntaActual].texto;
-        const botones = preguntasDiv.querySelectorAll("button");
-        botones.forEach((btn, index) => btn.textContent = preguntas[preguntaActual].opciones[index]);
-      }
-    }
+    retryBtn.onclick = () => {
+      respuestasCorrectas = 0;
+      preguntaActual = 0;
+      resultadoDiv.innerHTML = "";
+      preguntasDiv.style.display = "block";
+    };
+
+    resultadoDiv.appendChild(document.createElement("br"));
+    resultadoDiv.appendChild(retryBtn);
+
+    preguntasDiv.style.display = "none";
+  } else {
+    document.getElementById("pregunta-texto").textContent =
+      preguntas[preguntaActual].texto;
+
+    const botones = preguntasDiv.querySelectorAll("button");
+    botones.forEach((btn, index) => {
+      btn.textContent = preguntas[preguntaActual].opciones[index];
+      btn.onclick = () => respuesta(index);
+    });
+  }
+}
+
   </script>
 
 </body>
