@@ -240,9 +240,10 @@ h2 {
 
 .logo-final {
   position: absolute;
-  right: 20px;
-  bottom: 20px;
-  width: 120px;
-  opacity: 0.9;
+  right: 15px;
+  bottom: 15px;
+  width: 70px;
+  height: auto;
+  opacity: 0.85;
 }
 
