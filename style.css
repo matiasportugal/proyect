@@ -238,12 +238,20 @@ h2 {
   position: relative;
 }
 
-.logo-final {
+.logo-final{
+  width: 120px;        /* tamaño pequeño */
   position: absolute;
-  right: 15px;
-  bottom: 15px;
-  width: 70px;
-  height: auto;
-  opacity: 0.85;
+  right: 30px;
+  bottom: 30px;
+  opacity: 0.9;
+}
+.animar {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
 }
 
+.animar.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
