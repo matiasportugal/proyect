@@ -58,3 +58,18 @@
     crearImg("img/burbujas.png", false);
   }
 </script>
+const elementos = document.querySelectorAll(
+  'h1, h2, h3, p, img, .card, button'
+);
+
+elementos.forEach(el => el.classList.add('animar'));
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15 });
+
+elementos.forEach(el => observer.observe(el));
