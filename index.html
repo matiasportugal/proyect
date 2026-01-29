@@ -315,10 +315,10 @@ for (let i = 0; i < TOTAL_BURBUJAS; i++) {
       <p>La contaminación con basura y químicos afecta gravemente a la vida marina. Plásticos y redes abandonadas atrapan animales, los microplásticos entran en su alimentación y los químicos contaminan el agua y destruyen hábitats como arrecifes y manglares. Esto provoca la pérdida de especies y amenaza la biodiversidad de los ecosistemas marinos ecuatorianos.</p>
     </div>
 
-     <section class="imagenes-full">
-    <div><img src="img/basura1.jpg"></div>
-    <div><img src="img/basura2.jpg"></div>
-  </section>
+    <section class="imagenes-full">
+      <div><img src="img/basura1.jpg"></div>
+      <div><img src="img/basura2.jpg"></div>
+    </section>
     
     <div class="card" id="personas">
       <h3>Personas</h3>
@@ -331,33 +331,20 @@ for (let i = 0; i < TOTAL_BURBUJAS; i++) {
     </div>
 
     <div class="card" id="fuentes">
-  <h3>Fuentes</h3>
-  <p>
-    <a href="https://www.eltelegrafo.com.ec/noticias/nacionales/210/hasta-13-millones-de-toneladas-de-plastico-llegan-al-mar-cada-ano" target="_https://www.eltelegrafo.com.ec/noticias/nacionales/210/hasta-13-millones-de-toneladas-de-plastico-llegan-al-mar-cada-ano">www.eltelegrafo.com.ec</a>
-  </p>
-  <p>
-    <a href="https://www.galapagos.gob.ec/plan-estrategico-para-mitigar-los-impactos-de-la-basura-marina" target="_https://www.galapagos.gob.ec/plan-estrategico-para-mitigar-los-impactos-de-la-basura-marina">www.galapagos.gob.ec</a>
-  </p>
-  <p>
-    <a href="https://revistamarina.cl/es/articulo/basuras-marinas-impacto-actualidad-y-las-acciones-para-mitigar-sus-consecuencias" target="_https://revistamarina.cl/es/articulo/basuras-marinas-impacto-actualidad-y-las-acciones-para-mitigar-sus-consecuencias">revistamarina.cl</a>
-  </p>
-  <p>
-    <a href="https://https://www.galapagosscience.org/assessing-economic-losses-in-artisanal-fisheries-from-marine-plastic-pollution-in-coastal-ecuador-and-peru/" target="_https://www.galapagosscience.org/assessing-economic-losses-in-artisanal-fisheries-from-marine-plastic-pollution-in-coastal-ecuador-and-peru/">www.galapagosscience.org</a>
-  </p>
-  <p>
-    <a href="https://education-nationalgeographic-org.translate.goog/resource/marine-pollution/?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=sge&_x_tr_hist=true" target="_https://education-nationalgeographic-org.translate.goog/resource/marine-pollution/?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=sge&_x_tr_hist=true">education-nationalgeographic-org.translate.goog</a>
-  </p>
-  <p>
-    <a href="https://www.imo.org/es/mediacentre/hottopics/pages/marinelitter-default.aspx" target="_https://www.imo.org/es/mediacentre/hottopics/pages/marinelitter-default.aspx">www.imo.org</a>
-  </p>
-  <p>
-    <a href="https://www.mcsuk.org/ocean-emergency/ocean-pollution/plastics/plastic-pollution-on-marine-life/" target="_https://www.mcsuk.org/ocean-emergency/ocean-pollution/plastics/plastic-pollution-on-marine-life/">www.mcsuk.org</a>
-  </p>
-  <p>
-    <a href="https://www.cambridge.org/core/journals/cambridge-archaeological-journal/article/storywriting-workshops-as-archaeological-interventions-local-perceptions-of-galapagos-marine-plastic-litter/997EBFD0775E978E27A81F5505655299" target="_https://www.cambridge.org/core/journals/cambridge-archaeological-journal/article/storywriting-workshops-as-archaeological-interventions-local-perceptions-of-galapagos-marine-plastic-litter/997EBFD0775E978E27A81F5505655299">www.cambridge.org</a>
-  </p>
-
-</div>
+      <h3>Fuentes</h3>
+      <p>
+        <a href="https://www.eltelegrafo.com.ec/noticias/nacionales/210/hasta-13-millones-de-toneladas-de-plastico-llegan-al-mar-cada-ano" target="_blank">www.eltelegrafo.com.ec</a>
+      </p>
+      <p>
+        <a href="https://www.galapagos.gob.ec/plan-estrategico-para-mitigar-los-impactos-de-la-basura-marina" target="_blank">www.galapagos.gob.ec</a>
+      </p>
+      <p>
+        <a href="https://revistamarina.cl/es/articulo/basuras-marinas-impacto-actualidad-y-las-acciones-para-mitigar-sus-consecuencias" target="_blank">revistamarina.cl</a>
+      </p>
+      <p>
+        <a href="https://www.galapagosscience.org/assessing-economic-losses-in-artisanal-fisheries-from-marine-plastic-pollution-in-coastal-ecuador-and-peru/" target="_blank">www.galapagosscience.org</a>
+      </p>
+    </div>
 
     <!-- ===== NUEVO SISTEMA DE JUEGO ===== -->
     <div class="card quiz" id="juego">
@@ -368,7 +355,6 @@ for (let i = 0; i < TOTAL_BURBUJAS; i++) {
         <p id="pregunta-texto">¿Cuál de estos materiales contamina más el mar?</p>
         <button onclick="respuesta(0)">Plástico</button>
         <button onclick="respuesta(1)">Vidrio</button>
-        <button onclick="respuesta(0)">metal</button>
         <div id="resultado" style="margin-top:15px; font-weight:600;"></div>
       </div>
     </div>
@@ -432,75 +418,9 @@ for (let i = 0; i < TOTAL_BURBUJAS; i++) {
     const resultadoDiv = document.getElementById("resultado");
 
     const preguntas = [
-      { texto: "¿Cuál de estos materiales contamina más el mar?", opciones:["Plástico","Vidrio"], correcta:0 }
-      // Puedes añadir más preguntas aquí
-    ];
-
-    let respuestasCorrectas = 0;
-    let preguntaActual = 0;
-
-    // Animación de botón azul-verde degradado
-    let toggleColor = true;
-    setInterval(() => {
-      if (playBtn) {
-        playBtn.style.background = toggleColor 
-          ? "linear-gradient(to right, #3b82f6, #22c55e)"
-          : "linear-gradient(to right, #22c55e, #3b82f6)";
-        toggleColor = !toggleColor;
-        playBtn.style.color = "white";
-        playBtn.style.fontWeight = "600";
-      }
-    }, 1000);
-
-    playBtn.addEventListener("click", () => {
-      playBtn.style.display = "none";
-      preguntasDiv.style.display = "block";
-    });
-
-    function respuesta(opcion) {
-      const correcta = preguntas[preguntaActual].correcta;
-      if (opcion === correcta) respuestasCorrectas++;
-
-      preguntaActual++;
-
-      if (preguntaActual >= preguntas.length) {
-        const porcentaje = Math.round((respuestasCorrectas / preguntas.length) * 100);
-        resultadoDiv.textContent = `Tu puntaje: ${porcentaje}%`;
-        resultadoDiv.style.color = porcentaje >= 60 ? "green" : "red";
-
-        if (porcentaje >= 60) {
-          resultadoDiv.textContent += " ✅ ¡Felicidades, pasaste!";
-        } else {
-          const retryBtn = document.createElement("button");
-          retryBtn.textContent = "Volver a intentar";
-          retryBtn.style.marginTop = "10px";
-          retryBtn.style.padding = "10px";
-          retryBtn.style.border = "none";
-          retryBtn.style.borderRadius = "8px";
-          retryBtn.style.backgroundColor = "#3b82f6";
-          retryBtn.style.color = "white";
-          retryBtn.style.cursor = "pointer";
-
-          retryBtn.onclick = () => {
-            respuestasCorrectas = 0;
-            preguntaActual = 0;
-            resultadoDiv.textContent = "";
-            retryBtn.remove();
-            preguntasDiv.style.display = "block";
-          };
-
-          resultadoDiv.appendChild(document.createElement("br"));
-          resultadoDiv.appendChild(retryBtn);
-        }
-
-        preguntasDiv.style.display = "none";
-      } else {
-        document.getElementById("pregunta-texto").textContent = preguntas[preguntaActual].texto;
-        const botones = preguntasDiv.querySelectorAll("button");
-        botones.forEach((btn, index) => btn.textContent = preguntas[preguntaActual].opciones[index]);
-      }
-    }
-  </script>
-
-</body>
-</html>
+      { texto: "¿Cuál de estos materiales contamina más el mar?", opciones:["Plástico","Vidrio"], correcta:0 },
+      { texto: "¿Qué tipo de basura afecta más a los animales marinos al enredarse?", opciones:["Redes de pesca","Vidrio"], correcta:0 },
+      { texto: "¿Qué desecho entra en la alimentación de los peces y se convierte en microplástico?", opciones:["Plástico","Metal"], correcta:0 },
+      { texto: "¿Qué sustancias químicas contaminan el agua y reducen el oxígeno?", opciones:["Fertilizantes y pesticidas","Arena"], correcta:0 },
+      { texto: "¿Cuál es la acción más efectiva para proteger la vida marina?", opciones:["Reducir plásticos y limpiar playas","No hacer nada"], correcta:0 }
+   
