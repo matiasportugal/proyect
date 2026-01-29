@@ -1,17 +1,4 @@
-<script>
-  function respuesta(correcta) {
-    const r = document.getElementById("resultado");
-    r.textContent = correcta
-      ? "✅ Correcto. El plástico es el principal contaminante."
-      : "❌ Incorrecto. Intenta de nuevo.";
-    r.style.color = correcta ? "green" : "red";
-    // ocultar botones al terminar
-const botones = preguntasDiv.querySelectorAll("button");
-botones.forEach(btn => btn.style.display = "none");
-
-  }
-
-  // ===== FONDO ALEATORIO SIN SUPERPOSICIÓN =====
+ // ===== FONDO ALEATORIO SIN SUPERPOSICIÓN =====
   const fondo = document.getElementById("fondoDecorativo");
 
   const cols = Math.floor(window.innerWidth / 150);
