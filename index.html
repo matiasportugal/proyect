@@ -194,17 +194,6 @@
     }
 
     /* Cuadro de nombres grande */
-    #cuadro-final {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    #cuadro-final img {
-      width: 80px;
-      height: auto;
-    }
-
     #cuadro-final ul {
       list-style: disc;
       padding-left: 20px;
@@ -215,6 +204,51 @@
     }
   </style>
 </head>
+<script>
+const fondo = document.querySelector('.fondo-decorativo');
+
+const TOTAL_PECES = 30;
+const TOTAL_BURBUJAS = 20;
+
+const coloresAzules = [
+  '#0a2540',
+  '#1e40af',
+  '#2563eb',
+  '#38bdf8',
+  '#60a5fa'
+];
+
+function random(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
+function crearElemento(clase, src) {
+  const img = document.createElement('img');
+  img.src = src;
+  img.classList.add(clase);
+
+  const alturaPagina = document.documentElement.scrollHeight;
+
+  img.style.top = random(0, alturaPagina) + 'px';
+  img.style.left = random(0, 100) + 'vw';
+
+  img.style.filter += ` drop-shadow(0 0 0 ${coloresAzules[Math.floor(Math.random() * coloresAzules.length)]})`;
+
+  fondo.appendChild(img);
+}
+
+/* Peces */
+for (let i = 0; i < TOTAL_PECES; i++) {
+  const profundidad = i % 3 === 0 ? 'back' : i % 2 === 0 ? 'mid' : 'front';
+  crearElemento(profundidad, 'img/fish.png');
+}
+
+/* Burbujas */
+for (let i = 0; i < TOTAL_BURBUJAS; i++) {
+  crearElemento('back', 'img/bubble.png');
+}
+</script>
+
 <body>
 
   <!-- FONDOS -->
@@ -253,9 +287,9 @@
   <div class="content">
     <div class="card" id="inicio-card">
       <h3>Inicio</h3>
-      <p>La contaminación del mar en Ecuador es un grave problema que se origina principalmente por la basura (especialmente plásticos), que proceden de las ciudades, los ríos y los esteros y que acaban en el océano...</p>
+      <p>La contaminación del mar en Ecuador es un grave problema que se origina principalmente por la basura (especialmente plásticos), que proceden de las ciudades, los ríos y los esteros y que acaban en el océano. Estos residuos impactan en los animales marinos: porque se los tragan o porque se enredan en ellos. Los ecosistemas únicos de Galápagos también se ven amenazados por este problema. Por otro lado, la contaminación del mar afecta a las comunidades que dependen del mar, lo que hace que sea importante crear conciencia y buscar respuestas que contribuyan a la conservación de los ecosistemas marinos del país.</p>
       <h3>Objetivo</h3>
-      <p>La basura y los químicos que llegan al mar están dañando gravemente la vida marina y los ecosistemas de los que todos dependemos...</p>
+      <p>La basura y los químicos que llegan al mar están dañando gravemente la vida marina y los ecosistemas de los que todos dependemos. Plásticos, redes de pesca abandonadas y microplásticos atrapan animales y se cuelan en su alimentación, mientras vidrio, metales y residuos químicos contaminan el agua y reducen el oxígeno, poniendo en riesgo toda la cadena de la vida. Cada desecho que dejamos en la tierra puede terminar en el océano, afectando no solo a los animales, sino también a las personas que vivimos de él. Entender este impacto y cambiar nuestros hábitos es clave para proteger nuestros mares y garantizar un futuro más saludable para todos.</p>
     </div>
   </div>
 
@@ -266,16 +300,64 @@
   </section>
 
   <div class="content">
-    <div class="card" id="problema"><h3>Problema</h3><p>...</p></div>
-    <div class="card" id="marco"><h3>Marco</h3><p>...</p></div>
-    <div class="card" id="impacto"><h3>Impacto</h3><p>...</p></div>
-    <section class="imagenes-full">
-      <div><img src="img/basura1.jpg"></div>
-      <div><img src="img/basura2.jpg"></div>
-    </section>
-    <div class="card" id="personas"><h3>Personas</h3><p>...</p></div>
-    <div class="card" id="soluciones"><h3>Soluciones</h3><p>...</p></div>
-    <div class="card" id="fuentes"><h3>Fuentes</h3><p>...</p></div>
+    <div class="card" id="problema">
+      <h3>Problema</h3>
+      <p>La contaminación con basura y químicos amenaza seriamente los ecosistemas marinos de Ecuador. Plásticos, microplásticos y redes de pesca abandonadas dañan a los animales y entran en su alimentación, mientras fertilizantes, pesticidas y derrames químicos alteran el agua, reducen el oxígeno y afectan los arrecifes y manglares. Esto no solo pone en riesgo la vida marina, sino también a las comunidades que dependen del mar para su alimentación, su economía y su cultura.</p>
+    </div>
+    
+    <div class="card" id="marco">
+      <h3>Marco</h3>
+      <p>La contaminación marina es un problema causado por la basura y los químicos que llegan al océano desde la tierra. Plásticos, microplásticos, fertilizantes y derrames de petróleo dañan a los animales, alteran los ecosistemas y ponen en riesgo a las comunidades que dependen del mar. Cada desecho tiene un impacto real, y cuidar nuestros océanos es cuidar nuestra propia vida.</p>
+    </div>
+    
+    <div class="card" id="impacto">
+      <h3>Impacto</h3>
+      <p>La contaminación con basura y químicos afecta gravemente a la vida marina. Plásticos y redes abandonadas atrapan animales, los microplásticos entran en su alimentación y los químicos contaminan el agua y destruyen hábitats como arrecifes y manglares. Esto provoca la pérdida de especies y amenaza la biodiversidad de los ecosistemas marinos ecuatorianos.</p>
+    </div>
+
+     <section class="imagenes-full">
+    <div><img src="img/basura1.jpg"></div>
+    <div><img src="img/basura2.jpg"></div>
+  </section>
+    
+    <div class="card" id="personas">
+      <h3>Personas</h3>
+      <p>La contaminación marina también afecta directamente a las personas. Comunidades y civilizaciones que dependen de la pesca y de los recursos marinos ven amenazada su alimentación, su economía y su cultura. Los químicos y la basura que llegan al océano reducen la cantidad de peces y otros alimentos, mientras que los microplásticos y sustancias tóxicas pueden llegar a nuestra cadena alimentaria, poniendo en riesgo la salud de quienes viven del mar.</p>
+    </div>
+    
+    <div class="card" id="soluciones">
+      <h3>Soluciones</h3>
+      <p>Proteger nuestros mares empieza con pequeñas acciones que todos podemos tomar. Reducir el uso de plásticos, reciclar correctamente y limpiar playas y ríos ayuda a que los animales marinos no sufran. Evitar verter químicos y fertilizantes al agua protege los ecosistemas y la salud de quienes dependen del mar. Además, aprender y enseñar sobre estos problemas nos permite cuidar nuestros océanos y asegurar que futuras generaciones también puedan disfrutar de ellos.</p>
+    </div>
+
+    <div class="card" id="fuentes">
+  <h3>Fuentes</h3>
+  <p>
+    <a href="https://www.eltelegrafo.com.ec/noticias/nacionales/210/hasta-13-millones-de-toneladas-de-plastico-llegan-al-mar-cada-ano" target="_https://www.eltelegrafo.com.ec/noticias/nacionales/210/hasta-13-millones-de-toneladas-de-plastico-llegan-al-mar-cada-ano">www.eltelegrafo.com.ec</a>
+  </p>
+  <p>
+    <a href="https://www.galapagos.gob.ec/plan-estrategico-para-mitigar-los-impactos-de-la-basura-marina" target="_https://www.galapagos.gob.ec/plan-estrategico-para-mitigar-los-impactos-de-la-basura-marina">www.galapagos.gob.ec</a>
+  </p>
+  <p>
+    <a href="https://revistamarina.cl/es/articulo/basuras-marinas-impacto-actualidad-y-las-acciones-para-mitigar-sus-consecuencias" target="_https://revistamarina.cl/es/articulo/basuras-marinas-impacto-actualidad-y-las-acciones-para-mitigar-sus-consecuencias">revistamarina.cl</a>
+  </p>
+  <p>
+    <a href="https://https://www.galapagosscience.org/assessing-economic-losses-in-artisanal-fisheries-from-marine-plastic-pollution-in-coastal-ecuador-and-peru/" target="_https://www.galapagosscience.org/assessing-economic-losses-in-artisanal-fisheries-from-marine-plastic-pollution-in-coastal-ecuador-and-peru/">www.galapagosscience.org</a>
+  </p>
+  <p>
+    <a href="https://education-nationalgeographic-org.translate.goog/resource/marine-pollution/?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=sge&_x_tr_hist=true" target="_https://education-nationalgeographic-org.translate.goog/resource/marine-pollution/?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=sge&_x_tr_hist=true">education-nationalgeographic-org.translate.goog</a>
+  </p>
+  <p>
+    <a href="https://www.imo.org/es/mediacentre/hottopics/pages/marinelitter-default.aspx" target="_https://www.imo.org/es/mediacentre/hottopics/pages/marinelitter-default.aspx">www.imo.org</a>
+  </p>
+  <p>
+    <a href="https://www.mcsuk.org/ocean-emergency/ocean-pollution/plastics/plastic-pollution-on-marine-life/" target="_https://www.mcsuk.org/ocean-emergency/ocean-pollution/plastics/plastic-pollution-on-marine-life/">www.mcsuk.org</a>
+  </p>
+  <p>
+    <a href="https://www.cambridge.org/core/journals/cambridge-archaeological-journal/article/storywriting-workshops-as-archaeological-interventions-local-perceptions-of-galapagos-marine-plastic-litter/997EBFD0775E978E27A81F5505655299" target="_https://www.cambridge.org/core/journals/cambridge-archaeological-journal/article/storywriting-workshops-as-archaeological-interventions-local-perceptions-of-galapagos-marine-plastic-litter/997EBFD0775E978E27A81F5505655299">www.cambridge.org</a>
+  </p>
+
+</div>
 
     <!-- ===== NUEVO SISTEMA DE JUEGO ===== -->
     <div class="card quiz" id="juego">
@@ -283,10 +365,11 @@
       <button id="playBtn">▶️ Empezar Juego</button>
 
       <div id="preguntas" style="display:none; margin-top:15px;">
-        <p id="pregunta-texto"></p>
-        <button id="btn0"></button>
-        <button id="btn1"></button>
-        <div id="resultado"></div>
+        <p id="pregunta-texto">¿Cuál de estos materiales contamina más el mar?</p>
+        <button onclick="respuesta(0)">Plástico</button>
+        <button onclick="respuesta(1)">Vidrio</button>
+        <button onclick="respuesta(0)">metal</button>
+        <div id="resultado" style="margin-top:15px; font-weight:600;"></div>
       </div>
     </div>
 
@@ -294,129 +377,130 @@
 
   <!-- CUADRO GRANDE ABAJO -->
   <div class="card" id="cuadro-final" style="min-height:200px; margin-top:40px;">
+    <h3>Un proyecto de:</h3>
     <ul id="nombres-lista">
       <li>Matias Portugal</li>
       <li>Luis Bolaños</li>
       <li>Camila Carriel</li>
       <li>Dylan Vera</li>
     </ul>
-    <img src="img/logo.png" alt="Logo">
   </div>
 
   <script>
-    // ===== EFECTO DE FONDOS =====
     const front = document.getElementById("fondo-front");
     const back = document.getElementById("fondo-back");
 
-    function rand(min,max){return Math.random()*(max-min)+min;}
-    function azulRandom(){return `hue-rotate(${rand(180,220)}deg) saturate(${rand(80,140)}%)`; }
+    function rand(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    function azulRandom() {
+      return `hue-rotate(${rand(180,220)}deg) saturate(${rand(80,140)}%)`;
+    }
+
     const alto = document.body.scrollHeight;
     const ancho = window.innerWidth;
 
-    for(let i=0;i<30;i++){
-      const img=document.createElement("img");
-      img.src = Math.random()>0.5?"img/fish fondo1.png":"img/fish fondo2.png";
-      img.style.left=rand(0,ancho-150)+"px";
-      img.style.top=rand(0,alto)+"px";
-      img.style.transform=`rotate(${rand(0,360)}deg)`;
-      img.style.filter=azulRandom();
+    for (let i = 0; i < 30; i++) {
+      const img = document.createElement("img");
+      img.src = Math.random() > 0.5 ? "img/fish fondo1.png" : "img/fish fondo2.png";
+      img.style.left = rand(0, ancho - 150) + "px";
+      img.style.top = rand(0, alto) + "px";
+      img.style.transform = `rotate(${rand(0,360)}deg)`;
+      img.style.filter = azulRandom();
       front.appendChild(img);
     }
 
-    for(let i=0;i<20;i++){
-      const img=document.createElement("img");
-      img.src="img/burbujas.png";
-      img.style.left=rand(0,ancho-100)+"px";
-      img.style.top=rand(0,alto)+"px";
-      img.style.filter=azulRandom();
+    for (let i = 0; i < 20; i++) {
+      const img = document.createElement("img");
+      img.src = "img/burbujas.png";
+      img.style.left = rand(0, ancho - 100) + "px";
+      img.style.top = rand(0, alto) + "px";
+      img.style.filter = azulRandom();
       back.appendChild(img);
     }
 
-    window.addEventListener("scroll", ()=>{
-      back.style.transform=`translateY(${window.scrollY*0.15}px)`;
-      front.style.transform=`translateY(${window.scrollY*0.3}px)`;
+    /* ===== EFECTO PROFUNDIDAD ===== */
+    window.addEventListener("scroll", () => {
+      back.style.transform = `translateY(${window.scrollY * 0.15}px)`;
+      front.style.transform = `translateY(${window.scrollY * 0.3}px)`;
     });
 
-    // ===== SISTEMA DE JUEGO =====
+    /* ===== SISTEMA DE JUEGO ===== */
     const playBtn = document.getElementById("playBtn");
     const preguntasDiv = document.getElementById("preguntas");
     const resultadoDiv = document.getElementById("resultado");
-    const preguntaTexto = document.getElementById("pregunta-texto");
-    const btn0 = document.getElementById("btn0");
-    const btn1 = document.getElementById("btn1");
 
     const preguntas = [
-      { texto: "¿Cuál de estos materiales contamina más el mar?", opciones:["Plástico","Vidrio"], correcta:0 },
-      { texto: "¿Qué tipo de basura afecta más a los animales marinos al enredarse?", opciones:["Redes de pesca","Vidrio"], correcta:0 },
-      { texto: "¿Qué desecho entra en la alimentación de los peces y se convierte en microplástico?", opciones:["Plástico","Metal"], correcta:0 },
-      { texto: "¿Qué sustancias químicas contaminan el agua y reducen el oxígeno?", opciones:["Fertilizantes y pesticidas","Arena"], correcta:0 },
-      { texto: "¿Cuál es la acción más efectiva para proteger la vida marina?", opciones:["Reducir plásticos y limpiar playas","No hacer nada"], correcta:0 }
+      { texto: "¿Cuál de estos materiales contamina más el mar?", opciones:["Plástico","Vidrio"], correcta:0 }
+      // Puedes añadir más preguntas aquí
     ];
 
-    let preguntaActual = 0;
     let respuestasCorrectas = 0;
+    let preguntaActual = 0;
 
-    function mostrarPregunta(){
-      const pregunta = preguntas[preguntaActual];
-      preguntaTexto.textContent = pregunta.texto;
-      btn0.textContent = pregunta.opciones[0];
-      btn1.textContent = pregunta.opciones[1];
-    }
+    // Animación de botón azul-verde degradado
+    let toggleColor = true;
+    setInterval(() => {
+      if (playBtn) {
+        playBtn.style.background = toggleColor 
+          ? "linear-gradient(to right, #3b82f6, #22c55e)"
+          : "linear-gradient(to right, #22c55e, #3b82f6)";
+        toggleColor = !toggleColor;
+        playBtn.style.color = "white";
+        playBtn.style.fontWeight = "600";
+      }
+    }, 1000);
 
-    function respuesta(opcion){
-      if(opcion===preguntas[preguntaActual].correcta) respuestasCorrectas++;
+    playBtn.addEventListener("click", () => {
+      playBtn.style.display = "none";
+      preguntasDiv.style.display = "block";
+    });
+
+    function respuesta(opcion) {
+      const correcta = preguntas[preguntaActual].correcta;
+      if (opcion === correcta) respuestasCorrectas++;
+
       preguntaActual++;
-      if(preguntaActual>=preguntas.length){
-        const porcentaje = Math.round((respuestasCorrectas/preguntas.length)*100);
+
+      if (preguntaActual >= preguntas.length) {
+        const porcentaje = Math.round((respuestasCorrectas / preguntas.length) * 100);
         resultadoDiv.textContent = `Tu puntaje: ${porcentaje}%`;
-        resultadoDiv.style.color = porcentaje>=60?"green":"red";
-        if(porcentaje>=60){
+        resultadoDiv.style.color = porcentaje >= 60 ? "green" : "red";
+
+        if (porcentaje >= 60) {
           resultadoDiv.textContent += " ✅ ¡Felicidades, pasaste!";
         } else {
           const retryBtn = document.createElement("button");
-          retryBtn.textContent="Volver a intentar";
-          retryBtn.style.marginTop="10px";
-          retryBtn.style.padding="10px";
-          retryBtn.style.border="none";
-          retryBtn.style.borderRadius="8px";
-          retryBtn.style.backgroundColor="#3b82f6";
-          retryBtn.style.color="white";
-          retryBtn.style.cursor="pointer";
-          retryBtn.onclick=()=>{
-            respuestasCorrectas=0;
-            preguntaActual=0;
-            resultadoDiv.textContent="";
+          retryBtn.textContent = "Volver a intentar";
+          retryBtn.style.marginTop = "10px";
+          retryBtn.style.padding = "10px";
+          retryBtn.style.border = "none";
+          retryBtn.style.borderRadius = "8px";
+          retryBtn.style.backgroundColor = "#3b82f6";
+          retryBtn.style.color = "white";
+          retryBtn.style.cursor = "pointer";
+
+          retryBtn.onclick = () => {
+            respuestasCorrectas = 0;
+            preguntaActual = 0;
+            resultadoDiv.textContent = "";
             retryBtn.remove();
-            preguntasDiv.style.display="block";
-            mostrarPregunta();
-          }
+            preguntasDiv.style.display = "block";
+          };
+
           resultadoDiv.appendChild(document.createElement("br"));
           resultadoDiv.appendChild(retryBtn);
         }
-        preguntasDiv.style.display="none";
-      } else mostrarPregunta();
-    }
 
-    btn0.addEventListener("click",()=>respuesta(0));
-    btn1.addEventListener("click",()=>respuesta(1));
-
-    // ===== BOTÓN ANIMADO =====
-    let toggleColor = true;
-    setInterval(()=>{
-      if(playBtn){
-        playBtn.style.background=toggleColor?"linear-gradient(to right,#3b82f6,#22c55e)":"linear-gradient(to right,#22c55e,#3b82f6)";
-        toggleColor=!toggleColor;
-        playBtn.style.color="white";
-        playBtn.style.fontWeight="600";
+        preguntasDiv.style.display = "none";
+      } else {
+        document.getElementById("pregunta-texto").textContent = preguntas[preguntaActual].texto;
+        const botones = preguntasDiv.querySelectorAll("button");
+        botones.forEach((btn, index) => btn.textContent = preguntas[preguntaActual].opciones[index]);
       }
-    },1000);
-
-    playBtn.addEventListener("click",()=>{
-      playBtn.style.display="none";
-      preguntasDiv.style.display="block";
-      mostrarPregunta();
-    });
+    }
   </script>
+
 </body>
 </html>
-
