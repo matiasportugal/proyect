@@ -366,6 +366,7 @@ for (let i = 0; i < TOTAL_BURBUJAS; i++) {
     <h3>Un proyecto de:</h3>
     <ul id="nombres-lista">
       <li>Matias Portugal</li>
+      <li>Isabel Tapia</li>
       <li>Luis Bolaños</li>
       <li>Camila Carriel</li>
       <li>Dylan Vera</li>
@@ -412,15 +413,91 @@ for (let i = 0; i < TOTAL_BURBUJAS; i++) {
       front.style.transform = `translateY(${window.scrollY * 0.3}px)`;
     });
 
-    /* ===== SISTEMA DE JUEGO ===== */
-    const playBtn = document.getElementById("playBtn");
-    const preguntasDiv = document.getElementById("preguntas");
-    const resultadoDiv = document.getElementById("resultado");
+/*<!-- ===== NUEVO SISTEMA DE JUEGO ===== -->*/
+<div class="card quiz" id="juego">
+  <h3>Juego</h3>
+  <button id="playBtn">▶️ Empezar Juego</button>
 
-    const preguntas = [
-      { texto: "¿Cuál de estos materiales contamina más el mar?", opciones:["Plástico","Vidrio"], correcta:0 },
-      { texto: "¿Qué tipo de basura afecta más a los animales marinos al enredarse?", opciones:["Redes de pesca","Vidrio"], correcta:0 },
-      { texto: "¿Qué desecho entra en la alimentación de los peces y se convierte en microplástico?", opciones:["Plástico","Metal"], correcta:0 },
-      { texto: "¿Qué sustancias químicas contaminan el agua y reducen el oxígeno?", opciones:["Fertilizantes y pesticidas","Arena"], correcta:0 },
-      { texto: "¿Cuál es la acción más efectiva para proteger la vida marina?", opciones:["Reducir plásticos y limpiar playas","No hacer nada"], correcta:0 }
-   
+  <div id="preguntas" style="display:none; margin-top:15px;">
+    <p id="pregunta-texto"></p>
+    <button id="btn0"></button>
+    <button id="btn1"></button>
+    <div id="resultado" style="margin-top:15px; font-weight:600;"></div>
+  </div>
+</div>
+
+<script>
+  const playBtn = document.getElementById("playBtn");
+  const preguntasDiv = document.getElementById("preguntas");
+  const resultadoDiv = document.getElementById("resultado");
+  const preguntaTexto = document.getElementById("pregunta-texto");
+  const btn0 = document.getElementById("btn0");
+  const btn1 = document.getElementById("btn1");
+
+  const preguntas = [
+    { texto: "¿Cuál de estos materiales contamina más el mar?", opciones:["Plástico","Vidrio"], correcta:0 },
+    { texto: "¿Qué tipo de basura afecta más a los animales marinos al enredarse?", opciones:["Redes de pesca","Vidrio"], correcta:0 },
+    { texto: "¿Qué desecho entra en la alimentación de los peces y se convierte en microplástico?", opciones:["Plástico","Metal"], correcta:0 },
+    { texto: "¿Qué sustancias químicas contaminan el agua y reducen el oxígeno?", opciones:["Fertilizantes y pesticidas","Arena"], correcta:0 },
+    { texto: "¿Cuál es la acción más efectiva para proteger la vida marina?", opciones:["Reducir plásticos y limpiar playas","No hacer nada"], correcta:0 }
+  ];
+
+  let preguntaActual = 0;
+  let respuestasCorrectas = 0;
+
+  function mostrarPregunta() {
+    const pregunta = preguntas[preguntaActual];
+    preguntaTexto.textContent = pregunta.texto;
+    btn0.textContent = pregunta.opciones[0];
+    btn1.textContent = pregunta.opciones[1];
+  }
+
+  function respuesta(opcion) {
+    if(opcion === preguntas[preguntaActual].correcta){
+      respuestasCorrectas++;
+    }
+    preguntaActual++;
+    if(preguntaActual >= preguntas.length){
+      const porcentaje = Math.round((respuestasCorrectas / preguntas.length) * 100);
+      resultadoDiv.textContent = `Tu puntaje: ${porcentaje}%`;
+      resultadoDiv.style.color = porcentaje >= 60 ? "green" : "red";
+      if(porcentaje >= 60){
+        resultadoDiv.textContent += " ✅ ¡Felicidades, pasaste!";
+      } else {
+        const retryBtn = document.createElement("button");
+        retryBtn.textContent = "Volver a intentar";
+        retryBtn.style.marginTop = "10px";
+        retryBtn.style.padding = "10px";
+        retryBtn.style.border = "none";
+        retryBtn.style.borderRadius = "8px";
+        retryBtn.style.backgroundColor = "#3b82f6";
+        retryBtn.style.color = "white";
+        retryBtn.style.cursor = "pointer";
+
+        retryBtn.onclick = () => {
+          respuestasCorrectas = 0;
+          preguntaActual = 0;
+          resultadoDiv.textContent = "";
+          retryBtn.remove();
+          preguntasDiv.style.display = "block";
+          mostrarPregunta();
+        };
+
+        resultadoDiv.appendChild(document.createElement("br"));
+        resultadoDiv.appendChild(retryBtn);
+      }
+      preguntasDiv.style.display = "none";
+    } else {
+      mostrarPregunta();
+    }
+  }
+
+  btn0.addEventListener("click", ()=>respuesta(0));
+  btn1.addEventListener("click", ()=>respuesta(1));
+
+  playBtn.addEventListener("click", () => {
+    playBtn.style.display = "none";
+    preguntasDiv.style.display = "block";
+    mostrarPregunta();
+  });
+</script>
