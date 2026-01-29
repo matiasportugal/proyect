@@ -234,9 +234,16 @@ h2 {
     font-size: 1rem;
   }
 }
-#cuadro-final {
-  position: relative;
+#cuadro-final .logo-final{
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  width: 70px !important;
+  height: auto !important;
+  max-width: 70px !important;
+  z-index: 999 !important;
 }
+
 
 .logo-final{
   position: fixed;
